@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Path Finder
 
-## Getting Started
+**Path Finder** is a personalized travel and productivity planner that helps users discover destinations, create itineraries, and track personal goals — all in a unified, interactive dashboard. Designed for travelers and productivity enthusiasts, this app combines beautiful UI with data-driven insights to make planning seamless and enjoyable.
 
-First, run the development server:
+---
+
+## Features
+
+- **Discover Destinations**: Explore curated destinations with images and key information.
+- **Create Itineraries**: Build daily or multi-day travel plans with drag-and-drop functionality.
+- **Track Goals & Productivity**: Visualize goals, trips, and milestones with interactive charts.
+- **Interactive Dashboard**: All-in-one dashboard for managing trips and personal productivity.
+- **Smooth Animations**: Engaging transitions using Framer Motion.
+- **Responsive Design**: Mobile-first, built with Tailwind CSS and shadcn/ui components.
+- **TypeScript Support**: Strong typing for safer and cleaner code.
+
+---
+
+## Tech Stack
+
+- **Frontend**: [Next.js](https://nextjs.org/) + **TypeScript**
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Charts**: [Recharts](https://recharts.org/en-US/) or [Chart.js](https://www.chartjs.org/)
+- **State Management**: React hooks or Zustand (optional)
+- **Data Fetching**: Next.js API routes or static JSON files for demo
+
+---
+
+## Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/shamsad-alam-meraj/pathfinder.git
+cd path-finder
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Run the Development Server
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
