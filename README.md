@@ -22,8 +22,8 @@
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Charts**: [Recharts](https://recharts.org/en-US/) or [Chart.js](https://www.chartjs.org/)
-- **State Management**: React hooks or Zustand (optional)
+- **Charts**: [Recharts](https://recharts.org/en-US/)
+- **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
 - **Data Fetching**: Next.js API routes or static JSON files for demo
 
 ---
