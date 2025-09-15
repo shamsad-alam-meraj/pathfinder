@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import DarkModeProvider from "@/components/DarkModeProvider";
-import Navbar from "@/components/ Navbar";
-import { Sidebar } from "@/components/Sidebar";
-import NavbarMobile from "@/components/NavbarMobile";
+import DarkModeProvider from "@/components/Shared/DarkModeProvider";
+import Navbar from "@/components/Shared/ Navbar";
+import { Sidebar } from "@/components/Shared/Sidebar";
+import NavbarMobile from "@/components/Shared/NavbarMobile";
 
 export const metadata: Metadata = {
   title: "Path Finder",
