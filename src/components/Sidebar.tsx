@@ -12,7 +12,7 @@ const navItems = [
 
 export function Sidebar() {
   return (
-    <aside className="w-56 border-r  flex flex-col py-6">
+    <aside className="w-52 border-r  lg:flex flex-col py-6 hidden">
       <nav className="flex flex-col gap-2 px-4">
         {navItems.map((item) => (
           <Link
