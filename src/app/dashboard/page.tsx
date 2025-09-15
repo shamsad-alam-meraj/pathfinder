@@ -2,12 +2,6 @@
 
 import { motion } from "framer-motion";
 import {
-  ResponsiveContainer,
-  RadialBarChart,
-  RadialBar,
-  Legend,
-} from "recharts";
-import {
   Dialog,
   DialogTrigger,
   DialogContent,
@@ -18,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import GoalProgressChart from "@/components/Dashboard/GoalProgressChart";
 
 export default function Dashboard() {
   const trip = {
@@ -29,15 +24,9 @@ export default function Dashboard() {
   };
 
   const chartData = [
-    { name: "Completed", value: 3 },
-    { name: "Pending", value: 2 },
+    { name: "Completed", value: 3, fill: "#4ade80" }, // green
+    { name: "Pending", value: 2, fill: "#facc15" }, // yellow
   ];
-  const style = {
-    top: "50%",
-    right: 0,
-    transform: "translate(0, -50%)",
-    lineHeight: "24px",
-  };
 
   return (
     <div>
@@ -102,32 +91,8 @@ export default function Dashboard() {
           {/* Goal Progress */}
           <section className="flex-1 pl-10">
             <h2 className="text-4xl font-semibold mb-4 pl-4">Goal Progress</h2>
-            <div className=" p-4 rounded">
-              <ResponsiveContainer width="100%" height="100%">
-                <RadialBarChart
-                  cx="50%"
-                  cy="50%"
-                  innerRadius="10%"
-                  outerRadius="80%"
-                  barSize={10}
-                  data={chartData}
-                >
-                  <RadialBar
-                    minAngle={15}
-                    label={{ position: "insideStart", fill: "#fff" }}
-                    background
-                    clockWise
-                    dataKey="uv"
-                  />
-                  <Legend
-                    iconSize={10}
-                    layout="vertical"
-                    verticalAlign="middle"
-                    wrapperStyle={style}
-                  />
-                </RadialBarChart>
-              </ResponsiveContainer>
-            </div>
+
+            <GoalProgressChart data={chartData} />
           </section>
         </div>
       </div>
