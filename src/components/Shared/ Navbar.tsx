@@ -15,6 +15,7 @@ export default function Navbar() {
             alt="logo"
             width={50}
             height={50}
+            style={{ width: "auto", height: "auto" }}
           ></Image>
           <h6 className="pl-3 font-bold text-2xl text-purple-800">
             Path Finder
