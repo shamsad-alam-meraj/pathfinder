@@ -47,7 +47,7 @@ export default function ExplorePage() {
           <motion.div
             key={dest.id}
             whileHover={{ scale: 1.05 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer"
+            className=" rounded-lg shadow-xl border overflow-hidden cursor-pointer"
           >
             <div className="relative h-48 w-full">
               <Image
