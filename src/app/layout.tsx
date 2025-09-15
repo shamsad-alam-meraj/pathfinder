@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import DarkModeProvider from "@/components/DarkModeProvider";
-import Navbar from "@/components/ Navbar";
-import { Sidebar } from "@/components/Sidebar";
-import NavbarMobile from "@/components/NavbarMobile";
+import DarkModeProvider from "@/components/Shared/DarkModeProvider";
+import Navbar from "@/components/Shared/ Navbar";
+import { Sidebar } from "@/components/Shared/Sidebar";
+import NavbarMobile from "@/components/Shared/NavbarMobile";
 
 export const metadata: Metadata = {
   title: "Path Finder",
@@ -19,9 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-screen w-screen flex flex-col">
         <Navbar />
-        <div>
-          <NavbarMobile />
-        </div>
+        <NavbarMobile />
         <div className="flex flex-1 overflow-hidden">
           <Sidebar />
           <main className="flex-1 overflow-y-auto p-6">
