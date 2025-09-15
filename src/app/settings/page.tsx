@@ -16,7 +16,7 @@ export default function SettingsPage() {
       <div className="flex items-center p-6 rounded-lg shadow-md mb-6">
         <div className="w-24 h-24 relative rounded-full overflow-hidden mr-6">
           <Image
-            src="https://images.unsplash.com/photo-1603415526960-fc3aa38b1d13"
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Avatar"
             fill
             className="object-cover"
