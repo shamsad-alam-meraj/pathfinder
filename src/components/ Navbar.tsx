@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="py-5 px-10 lg:flex  items-center border-b  hidden">
+    <div className="py-5 px-10 lg:flex  items-center border-b  hidden bg-white dark:bg-gray-950">
       {/* image/ logo  */}
       <div className="flex-1 ">
         <Link className="flex items-center" href="/">

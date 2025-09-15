@@ -26,15 +26,18 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center text-center py-20 px-6">
       {/* Hero Section */}
-      <h1 className="text-5xl font-extrabold tracking-tight text-gray-900 mb-6">
+      <h1 className="text-5xl font-extrabold tracking-tight text-blue-700 mb-6">
         Plan Smarter. Travel Better.
       </h1>
-      <p className="text-lg text-gray-600 max-w-2xl mb-8">
+      <p className="text-lg text-blue-900 max-w-2xl mb-8">
         PathFinder helps you organize trips, track goals, and explore new
         destinations — all in one place.
       </p>
       <div className="flex gap-4 mb-16">
-        <Button size="lg" className="px-8">
+        <Button
+          size="lg"
+          className="px-8 bg-blue-600 hover:bg-blue-800 font-bold"
+        >
           Get Started
         </Button>
         <Button size="lg" variant="outline" className="px-8">
