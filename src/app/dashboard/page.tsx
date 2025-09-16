@@ -24,77 +24,84 @@ export default function Dashboard() {
   };
 
   const chartData = [
-    { name: "Completed", value: 3, fill: "#4ade80" }, // green
-    { name: "Pending", value: 2, fill: "#facc15" }, // yellow
+    { name: "Completed", value: 3, fill: "#4ade80" },
+    { name: "Pending", value: 2, fill: "#facc15" },
   ];
 
   return (
-    <div>
-      <div className="px-10">
-        {" "}
-        <motion.h1 className="text-8xl font-bold">
-          Plan you journeys, track your goals, explore smarter
-        </motion.h1>
-        <motion.h3
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold pt-8 pb-5"
-        >
-          Welcome back, John
-        </motion.h3>
-        {/* Welcome Header */}
-        <div className="flex w-full gap-5">
-          <div className="flex-1 pr-10">
-            {/* Start New Trip Button + Dialog */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className=" text-blue-800 hover:bg-blue-100 bg-blue-200 font-semibold py-10 w-full text-2xl rounded-lg">
-                  Choose Destination
-                </Button>
-              </DialogTrigger>
+    <div className="px-5 md:px-10">
+      {/* Hero / Header */}
+      <motion.h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight">
+        Plan your journeys, track your goals, explore smarter
+      </motion.h1>
 
-              <DialogContent className="sm:max-w-lg">
-                <DialogHeader>
-                  <DialogTitle>New Trip</DialogTitle>
-                  <DialogDescription>
-                    This is a dummy dialog for starting a new trip.
-                  </DialogDescription>
-                </DialogHeader>
-                <div className="mt-4 flex justify-end">
-                  <DialogClose asChild>
-                    <Button>Close</Button>
-                  </DialogClose>
-                </div>
-              </DialogContent>
-            </Dialog>
+      <motion.h3
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="text-xl md:text-3xl lg:text-4xl font-bold pt-6 pb-5"
+      >
+        Welcome back, John
+      </motion.h3>
 
-            {/* Upcoming Trips */}
-            <section className="mt-10">
-              <h2 className="text-2xl font-semibold mb-4">Upcoming Trips</h2>
-              <div className="flex items-center rounded p-3">
-                <div className="flex-2 flex-col">
-                  <h1 className="text-4xl font-bold pb-3">{trip.name}</h1>
-                  <h6 className="font-semibold text-xl">{trip.date}</h6>
-                </div>
-                <div className="flex-1">
-                  <Image
-                    className="rounded-lg"
-                    src={trip.image}
-                    alt="japan"
-                    width={200}
-                    height={200}
-                  ></Image>
-                </div>
+      {/* Content Sections */}
+      <div className="flex flex-col lg:flex-row gap-10 w-full">
+        {/* Left Column */}
+        <div className="flex-1">
+          {/* Start New Trip Button + Dialog */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button className="w-full text-lg md:text-xl text-blue-800 bg-blue-200 hover:bg-blue-100 font-semibold py-6 md:py-10 rounded-lg">
+                Choose Destination
+              </Button>
+            </DialogTrigger>
+
+            <DialogContent className="sm:max-w-lg">
+              <DialogHeader>
+                <DialogTitle>New Trip</DialogTitle>
+                <DialogDescription>
+                  This is a dummy dialog for starting a new trip.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="mt-4 flex justify-end">
+                <DialogClose asChild>
+                  <Button>Close</Button>
+                </DialogClose>
               </div>
-            </section>
-          </div>
-          {/* Goal Progress */}
-          <section className="flex-1 pl-10">
-            <h2 className="text-4xl font-semibold mb-4 pl-4">Goal Progress</h2>
+            </DialogContent>
+          </Dialog>
 
-            <GoalProgressChart data={chartData} />
+          {/* Upcoming Trips */}
+          <section className="mt-8">
+            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+              Upcoming Trips
+            </h2>
+            <div className="flex flex-col md:flex-row items-center gap-4 rounded-lg border p-4 shadow-sm">
+              <div className="flex-1 text-center md:text-left">
+                <h1 className="text-2xl md:text-4xl font-bold pb-2">
+                  {trip.name}
+                </h1>
+                <h6 className="font-semibold text-lg md:text-xl">{trip.date}</h6>
+              </div>
+              <div className="flex-1">
+                <Image
+                  className="rounded-lg mx-auto md:mx-0"
+                  src={trip.image}
+                  alt="japan"
+                  width={250}
+                  height={200}
+                />
+              </div>
+            </div>
           </section>
         </div>
+
+        {/* Right Column */}
+        <section className="flex-1">
+          <h2 className="text-2xl md:text-4xl font-semibold mb-4">
+            Goal Progress
+          </h2>
+          <GoalProgressChart data={chartData} />
+        </section>
       </div>
     </div>
   );
