@@ -28,29 +28,32 @@ export default function TripDetails({
       {/* Header Image with Overlay */}
       <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl">
         <Image src={trip.image} alt={trip.name} fill className="object-cover" />
-        <div className="absolute inset-0 bg-opacity-30 flex flex-col justify-end p-6">
+        <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-6">
           <h1 className="text-4xl font-bold text-white">{trip.name}</h1>
           <div className="flex items-center gap-4 mt-2 text-gray-200">
             <FiMapPin /> <span>{trip.location}</span>
             <FiCalendar /> <span>{trip.date}</span>
           </div>
+          <p className="mt-2 text-gray-200">{trip.type} • {trip.locationType}</p>
         </div>
       </div>
 
       {/* Trip Overview Section */}
       <section className="border shadow-md rounded-lg p-6 space-y-4">
         <h2 className="text-2xl font-semibold">Trip Overview</h2>
-        <p className=" leading-relaxed">
-          Discover the wonders of {trip.location} with this carefully curated
-          trip. Perfect for adventure seekers, culture lovers, and anyone
-          looking to explore new places.
-        </p>
-        <ul className="list-disc list-inside  space-y-1">
-          <li>Duration: {trip.date}</li>
-          <li>Location: {trip.location}</li>
-          <li>Activities: Sightseeing, Adventure, Local Culture</li>
-          <li>Recommended Gear: Comfortable shoes, Camera, Travel Guide</li>
-          <li>Best Travel Time: October - December</li>
+        <p className="leading-relaxed">{trip.description}</p>
+        <ul className="list-disc list-inside space-y-1">
+          <li><strong>Duration:</strong> {trip.duration}</li>
+          <li><strong>Location:</strong> {trip.location}</li>
+          <li>
+            <strong>Activities:</strong> {trip.activities.join(", ")}
+          </li>
+          <li>
+            <strong>Recommended Gear:</strong> {trip.recommendedGear.join(", ")}
+          </li>
+          <li>
+            <strong>Best Travel Time:</strong> {trip.bestTravelTime}
+          </li>
         </ul>
       </section>
 
@@ -74,35 +77,16 @@ export default function TripDetails({
         </button>
       </div>
 
-      {/* Static Highlights Section */}
+      {/* Highlights Section */}
       <section className="border shadow-md rounded-lg p-6 space-y-4">
         <h2 className="text-2xl font-semibold">Trip Highlights</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="border p-4 rounded shadow-sm">
-            <h3 className="font-semibold">Must-Visit Places</h3>
-            <p className=" mt-1">
-              Iconic landmarks, hidden gems, and breathtaking natural spots.
-            </p>
-          </div>
-          <div className="border p-4 rounded shadow-sm">
-            <h3 className="font-semibold">Activities</h3>
-            <p className=" mt-1">
-              Adventure sports, cultural tours, local experiences.
-            </p>
-          </div>
-          <div className="border p-4 rounded shadow-sm">
-            <h3 className="font-semibold">Local Cuisine</h3>
-            <p className=" mt-1">
-              Taste traditional dishes and street food from {trip.location}.
-            </p>
-          </div>
-          <div className="border p-4 rounded shadow-sm">
-            <h3 className="font-semibold">Tips & Notes</h3>
-            <p className=" mt-1">
-              Pack essentials, respect local customs, and plan ahead for peak
-              times.
-            </p>
-          </div>
+          {trip.activities.map((activity, index) => (
+            <div key={index} className="border p-4 rounded shadow-sm">
+              <h3 className="font-semibold">{activity}</h3>
+              <p className="mt-1">Enjoy {activity.toLowerCase()} during this trip.</p>
+            </div>
+          ))}
         </div>
       </section>
     </div>

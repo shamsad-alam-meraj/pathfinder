@@ -7,6 +7,13 @@ export interface Trip {
   date: string;
   image: string;
   location: string;
+  type: string;
+  locationType: string;
+  description: string;
+  recommendedGear: string[];
+  activities: string[];
+  bestTravelTime: string;
+  duration: string;
 }
 
 interface TripState {

@@ -39,7 +39,6 @@ export default function TripList() {
   return (
     <div className="space-y-8">
       {/* Top Section */}
-      {/* Top Section */}
       <div className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 rounded-xl shadow-lg overflow-hidden">
         {/* Decorative SVG/Blob */}
         <svg
@@ -77,7 +76,7 @@ export default function TripList() {
 
       {/* Trips Grid */}
       <div>
-        <h1 className="text-3xl font-bold mb-6">Your Trips</h1>
+        <h1 className="text-3xl font-bold mb-6">Recommended Trips</h1>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {initialTrips.map((trip) => (
             <TripCard key={trip.id} trip={trip} />
