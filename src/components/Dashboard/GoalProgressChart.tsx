@@ -13,14 +13,14 @@ interface GoalChartProps {
 
 export default function GoalProgressChart({ data }: GoalChartProps) {
   return (
-    <div className="w-full h-80">
+    <div className="w-full h-60 sm:h-72 md:h-80">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
-          cx="30%"
+          cx="50%" // center horizontally for mobile
           cy="50%"
-          innerRadius="10%"
-          outerRadius="80%"
-          barSize={20}
+          innerRadius="20%"
+          outerRadius="90%" // bigger on small screens
+          barSize={18}
           data={data}
         >
           <RadialBar
@@ -33,7 +33,7 @@ export default function GoalProgressChart({ data }: GoalChartProps) {
                 fill="#000"
                 textAnchor="middle"
                 dominantBaseline="central"
-                fontSize={16}
+                fontSize={14}
                 fontWeight={600}
               >
                 {value}
@@ -41,14 +41,13 @@ export default function GoalProgressChart({ data }: GoalChartProps) {
             )}
           />
           <Legend
-            iconSize={10}
+            iconSize={12}
             layout="vertical"
             verticalAlign="middle"
+            align="right"
             wrapperStyle={{
-              top: "50%",
-              right: 0,
-              transform: "translateY(-50%)",
-              lineHeight: "24px",
+              fontSize: "12px",
+              lineHeight: "20px",
             }}
           />
         </RadialBarChart>

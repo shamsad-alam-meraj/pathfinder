@@ -6,6 +6,7 @@ export interface Trip {
   name: string;
   date: string;
   image: string;
+  location: string;
 }
 
 interface TripState {
