@@ -15,8 +15,8 @@ import {
 export default function TripList() {
   const trips = useTripStore((state) => state.trips);
 
-  const initialTrips = trips.slice(0, 12); // first 12 trips
-  const recentTrips = trips.slice(-3); // last 3 trips
+  const initialTrips = trips.slice(0, 12);
+  const recentTrips = trips.slice(-6);
 
   type ChartData = { month: string; count: number };
 

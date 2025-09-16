@@ -20,7 +20,7 @@ export default function Dashboard() {
     name: "Japan Adventure",
     date: "Oct 1–10, 2025",
     image:
-      "https://lh3.googleusercontent.com/gpms-cs-s/AB8u6HaOdlGfDvI9kDzm7zVYz9eQKT1Lnt1vaGHK3J16VF900T9SWcikvCskB_a1SJ5o2BPi-f7V0su-AUzKAEjLvKNX4bnqG-V18JYETG73PDiFhdEVnOLt_gq0yJlGWbRvhRB1MyWz=s680-w680-h510-rw",
+      "https://images.unsplash.com/photo-1579525108311-0c5730b5799d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   };
 
   const chartData = [
@@ -75,12 +75,14 @@ export default function Dashboard() {
             <h2 className="text-xl md:text-2xl font-semibold mb-4">
               Upcoming Trips
             </h2>
-            <div className="flex flex-col md:flex-row items-center gap-4 rounded-lg border p-4 shadow-sm">
+            <div className="flex flex-col md:flex-row items-center gap-4 rounded-lg border-0.5 p-4 shadow-lg">
               <div className="flex-1 text-center md:text-left">
                 <h1 className="text-2xl md:text-4xl font-bold pb-2">
                   {trip.name}
                 </h1>
-                <h6 className="font-semibold text-lg md:text-xl">{trip.date}</h6>
+                <h6 className="font-semibold text-lg md:text-xl">
+                  {trip.date}
+                </h6>
               </div>
               <div className="flex-1">
                 <Image
