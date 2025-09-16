@@ -3,8 +3,6 @@
 import { useSettingsStore } from "@/store/useSettingsStore";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { FiMoon, FiBell, FiMapPin, FiShield } from "react-icons/fi";
 import { MdLanguage } from "react-icons/md";
@@ -12,10 +10,51 @@ import { MdLanguage } from "react-icons/md";
 export default function SettingsPage() {
   const darkMode = useSettingsStore((state) => state.darkMode);
   const toggleDarkMode = useSettingsStore((state) => state.toggleDarkMode);
-  const [notifications, setNotifications] = useState(true);
-  const [locationAccess, setLocationAccess] = useState(false);
-  const [privacyMode, setPrivacyMode] = useState(false);
-  const [language, setLanguage] = useState("English");
+  const notifications = useSettingsStore((state) => state.notifications);
+  const setNotifications = useSettingsStore((state) => state.setNotifications);
+  const locationAccess = useSettingsStore((state) => state.locationAccess);
+  const setLocationAccess = useSettingsStore(
+    (state) => state.setLocationAccess
+  );
+  const privacyMode = useSettingsStore((state) => state.privacyMode);
+  const togglePrivacyMode = useSettingsStore(
+    (state) => state.togglePrivacyMode
+  );
+  const language = useSettingsStore((state) => state.language);
+  const setLanguage = useSettingsStore((state) => state.setLanguage);
+
+  const handleNotifications = () => {
+    if (!notifications && "Notification" in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+          setNotifications(true);
+          alert("Notifications enabled!");
+        } else {
+          setNotifications(false);
+          alert("Notifications blocked by user.");
+        }
+      });
+    } else {
+      setNotifications(false);
+    }
+  };
+
+  const handleLocationAccess = () => {
+    if (!locationAccess && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log("Location allowed:", position.coords);
+          setLocationAccess(true);
+        },
+        (error) => {
+          console.log("Location denied or error:", error);
+          setLocationAccess(false);
+        }
+      );
+    } else {
+      setLocationAccess(false);
+    }
+  };
 
   return (
     <div className="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
@@ -63,7 +102,10 @@ export default function SettingsPage() {
             <FiBell className="text-gray-700 dark:text-gray-200 text-xl" />
             <span className="font-semibold">Notifications</span>
           </div>
-          <Switch checked={notifications} onCheckedChange={setNotifications} />
+          <Switch
+            checked={notifications}
+            onCheckedChange={handleNotifications}
+          />
         </motion.div>
 
         {/* Location Access */}
@@ -74,7 +116,7 @@ export default function SettingsPage() {
           </div>
           <Switch
             checked={locationAccess}
-            onCheckedChange={setLocationAccess}
+            onCheckedChange={handleLocationAccess}
           />
         </motion.div>
 
@@ -84,7 +126,7 @@ export default function SettingsPage() {
             <FiShield className="text-gray-700 dark:text-gray-200 text-xl" />
             <span className="font-semibold">Privacy Mode</span>
           </div>
-          <Switch checked={privacyMode} onCheckedChange={setPrivacyMode} />
+          <Switch checked={privacyMode} onCheckedChange={togglePrivacyMode} />
         </motion.div>
 
         {/* Language Selection */}
@@ -96,7 +138,7 @@ export default function SettingsPage() {
           <select
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
-            className="border rounded-md px-3 py-2 bg-white dark:bg-gray-700 dark:text-white text-gray-800"
+            className="border rounded-md px-3 py-2 bg-white dark:bg-gray-700 dark:text-white text-gray-800 w-full md:w-auto"
           >
             <option>English</option>
             <option>Spanish</option>
