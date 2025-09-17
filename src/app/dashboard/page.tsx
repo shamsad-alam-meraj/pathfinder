@@ -7,6 +7,7 @@ import Image from "next/image";
 import GoalProgressChart from "@/components/Dashboard/GoalProgressChart";
 import ProtectedRoute from "@/components/Shared/ProtectedRoute";
 import { useRouter } from "next/navigation";
+import { FiPlus } from "react-icons/fi";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -48,15 +49,23 @@ export default function Dashboard() {
         <div className="flex flex-col lg:flex-row gap-10 w-full">
           <div className="flex-1 space-y-6">
             <Button
-              className="w-full text-lg md:text-xl text-blue-800 bg-blue-200 hover:bg-blue-100 font-semibold py-6 md:py-10 rounded-lg"
+              className="w-full flex items-center justify-center gap-3 text-lg md:text-xl text-blue-800 
+                 bg-blue-200 hover:bg-blue-100 font-semibold py-6 md:py-10 rounded-lg 
+                 transition-transform duration-200 hover:scale-101 shadow-md"
               onClick={() => router.push("/trips")}
             >
-              Start Trip
+              {/* Icon wrapper for circle background */}
+              <span className="flex items-center justify-center w-10 h-10 bg-white rounded-full">
+                <FiPlus className="text-blue-500 font-bold" size={24} />
+              </span>
+              Start a New Trip
             </Button>
 
             {/* Started Trips Section */}
             <section className="space-y-4">
-              <h2 className="text-xl md:text-2xl font-semibold">Started Trips</h2>
+              <h2 className="text-xl md:text-2xl font-semibold">
+                Started Trips
+              </h2>
               {startedTripsData.length === 0 && (
                 <p className="text-yellow-500">No trips started yet.</p>
               )}
@@ -85,7 +94,9 @@ export default function Dashboard() {
 
             {/* Wishlisted Trips Section */}
             <section className="space-y-4 mt-6">
-              <h2 className="text-xl md:text-2xl font-semibold">Wishlisted Trips</h2>
+              <h2 className="text-xl md:text-2xl font-semibold">
+                Wishlisted Trips
+              </h2>
               {wishlistedTripsData.length === 0 && (
                 <p className="text-gray-500">No trips wishlisted yet.</p>
               )}
@@ -115,7 +126,9 @@ export default function Dashboard() {
 
           {/* Right Column: Goal Progress & Chart */}
           <section className="flex-1 space-y-6">
-            <h2 className="text-2xl md:text-4xl font-semibold mb-4">Goal Progress</h2>
+            <h2 className="text-2xl md:text-4xl font-semibold mb-4">
+              Goal Progress
+            </h2>
             <GoalProgressChart data={chartData} />
 
             {/* Analytics Summary */}
