@@ -9,6 +9,11 @@ import { useAuthStore } from "@/store/useAuthStore";
 export default function Navbar() {
   const { data: session, status } = useSession();
   const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
+  const handleLogout = async () => {
+    logout();
+    await signOut({ callbackUrl: "/" });
+  };
   return (
     <div className="py-5 px-6 lg:px-10 lg:flex items-center border-b hidden bg-white dark:bg-gray-950">
       {/* Logo */}
@@ -35,7 +40,7 @@ export default function Navbar() {
         {status === "loading" ? null : session || user ? (
           <Button
             className="bg-red-500 hover:bg-red-600 text-white px-6"
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={handleLogout}
           >
             Log Out
           </Button>

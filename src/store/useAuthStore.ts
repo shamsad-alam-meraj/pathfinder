@@ -22,13 +22,8 @@ export const useAuthStore = create<AuthState>()(
       user: null,
       setUser: (user) => set({ user }),
       logout: () => {
-        // Clear all other stores
-        useTripStore.persist.clearStorage?.();
-        useGoalStore.persist.clearStorage?.();
-        useSettingsStore.persist.clearStorage?.();
-
-        // Reset stores in memory
-        useTripStore.setState({ trips: useTripStore.getState().trips, startedTrips: [], wishlist: [] });
+        // Reset all other stores in memory
+        useTripStore.setState({ trips: [], startedTrips: [], wishlist: [] });
         useGoalStore.setState({ goals: [] });
         useSettingsStore.setState({
           darkMode: false,
@@ -38,11 +33,16 @@ export const useAuthStore = create<AuthState>()(
           language: "English",
         });
 
-        //  Clear auth itself
-        set({ user: null });
+        // Clear persisted storage for each store individually
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("trip-storage");
+          localStorage.removeItem("goal-storage");
+          localStorage.removeItem("settings-storage");
+          localStorage.removeItem("auth-storage"); // auth itself
+        }
 
-        // clear entire localStorage
-        if (typeof window !== "undefined") localStorage.clear();
+        // Reset auth store in memory
+        set({ user: null });
       },
     }),
     {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useSettingsStore } from "@/store/useSettingsStore";
+import { useAuthStore } from "@/store/useAuthStore";
 import { Switch } from "@/components/ui/switch";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -24,16 +25,14 @@ export default function SettingsPage() {
   const language = useSettingsStore((state) => state.language);
   const setLanguage = useSettingsStore((state) => state.setLanguage);
 
+  // Get user from Auth Store
+  const user = useAuthStore((state) => state.user);
+
   const handleNotifications = () => {
     if (!notifications && "Notification" in window) {
       Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          setNotifications(true);
-          alert("Notifications enabled!");
-        } else {
-          setNotifications(false);
-          alert("Notifications blocked by user.");
-        }
+        setNotifications(permission === "granted");
+        if (permission === "granted") alert("Notifications enabled!");
       });
     } else {
       setNotifications(false);
@@ -47,10 +46,7 @@ export default function SettingsPage() {
           console.log("Location allowed:", position.coords);
           setLocationAccess(true);
         },
-        (error) => {
-          console.log("Location denied or error:", error);
-          setLocationAccess(false);
-        }
+        () => setLocationAccess(false)
       );
     } else {
       setLocationAccess(false);
@@ -73,16 +69,19 @@ export default function SettingsPage() {
         >
           <div className="w-24 h-24 relative rounded-full overflow-hidden flex-shrink-0">
             <Image
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop"
-              alt="Avatar"
+              src={
+                user?.image ||
+                "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop"
+              }
+              alt={user?.name || "Avatar"}
               fill
               className="object-cover"
             />
           </div>
           <div className="text-center sm:text-left">
-            <h2 className="text-xl font-bold">Md. Shamsad Alam Meraj</h2>
+            <h2 className="text-xl font-bold">{user?.name || "User"}</h2>
             <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-              shamsad.alam.meraj@gmail.com
+              {user?.email || "user@example.com"}
             </p>
           </div>
         </motion.div>

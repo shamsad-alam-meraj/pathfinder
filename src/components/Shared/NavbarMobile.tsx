@@ -25,12 +25,8 @@ export default function NavbarMobile() {
   ];
 
   const handleLogout = () => {
-    // Clear Zustand user
     if (user) useAuthStore.getState().logout();
-
-    // Sign out session if exists
-    if (session) signOut({ callbackUrl: "/login" });
-
+    if (session) signOut({ callbackUrl: "/" });
     setOpen(false);
   };
 
@@ -39,8 +35,15 @@ export default function NavbarMobile() {
       {/* Navbar Top */}
       <div className="flex items-center justify-between py-4 px-4">
         <Link href="/" className="flex items-center">
-          <Image src="/images/logo/logo.png" alt="logo" width={40} height={40} />
-          <h6 className="pl-2 font-bold text-xl text-purple-800">Path Finder</h6>
+          <Image
+            src="/images/logo/logo.png"
+            alt="logo"
+            width={40}
+            height={40}
+          />
+          <h6 className="pl-2 font-bold text-xl text-purple-800">
+            Path Finder
+          </h6>
         </Link>
 
         {isLoggedIn ? (
