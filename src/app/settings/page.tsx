@@ -80,9 +80,9 @@ export default function SettingsPage() {
             />
           </div>
           <div className="text-center sm:text-left">
-            <h2 className="text-xl font-bold">John Doe</h2>
+            <h2 className="text-xl font-bold">Md. Shamsad Alam Meraj</h2>
             <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
-              john.doe@example.com
+              shamsad.alam.meraj@gmail.com
             </p>
           </div>
         </motion.div>
