@@ -1,5 +1,6 @@
 import { tripData } from "@/lib/dummy-data";
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 export interface Trip {
   id: number;
@@ -18,13 +19,34 @@ export interface Trip {
 
 interface TripState {
   trips: Trip[];
-  addTrip: (trip: Trip) => void;
-  removeTrip: (id: number) => void;
+  startedTrips: number[];
+  startTrip: (id: number) => void;
 }
 
-export const useTripStore = create<TripState>((set) => ({
-  trips: tripData,
-  addTrip: (trip) => set((state) => ({ trips: [...state.trips, trip] })),
-  removeTrip: (id) =>
-    set((state) => ({ trips: state.trips.filter((t) => t.id !== id) })),
-}));
+export const useTripStore = create<TripState>()(
+  persist(
+    (set) => ({
+      trips: tripData,
+      startedTrips: [],
+      startTrip: (id: number) =>
+        set((state) => ({
+          startedTrips: state.startedTrips.includes(id)
+            ? state.startedTrips
+            : [...state.startedTrips, id],
+        })),
+    }),
+    {
+      name: "trip-storage",
+      storage: createJSONStorage(() => {
+        if (typeof window !== "undefined") return localStorage;
+        // Dummy storage for SSR
+        return {
+          getItem: async () => null,
+          setItem: async () => {},
+          removeItem: async () => {},
+        };
+      }),
+      partialize: (state) => ({ startedTrips: state.startedTrips }),
+    }
+  )
+);

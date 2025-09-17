@@ -56,7 +56,7 @@ export default function TripCard({ trip }: TripCardProps) {
             </span>
           )}
           {trip.locationType && (
-            <span className="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full text-xs">
+            <span className="border text-gray-400 px-2 py-0.5 rounded-full text-xs">
               {trip.locationType}
             </span>
           )}
