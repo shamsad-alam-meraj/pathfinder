@@ -20,12 +20,6 @@ export default function ExplorePage() {
   const [locationFilter, setLocationFilter] = useState("All");
   const [typeFilter, setTypeFilter] = useState("All");
 
-  // Featured trips (IDs 10–16)
-  const featuredTrips = useMemo(
-    () => trips.filter((t) => t.id >= 10 && t.id <= 16),
-    [trips]
-  );
-
   // Filtered trips
   const filteredTrips = useMemo(() => {
     return trips.filter((t) => {
