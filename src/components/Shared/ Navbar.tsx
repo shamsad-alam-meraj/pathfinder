@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export default function Navbar() {
   const { data: session, status } = useSession();
-
+  const user = useAuthStore((state) => state.user);
   return (
     <div className="py-5 px-6 lg:px-10 lg:flex items-center border-b hidden bg-white dark:bg-gray-950">
       {/* Logo */}
@@ -31,7 +32,7 @@ export default function Navbar() {
 
       {/* Right Section → Login/Logout */}
       <div className="flex-1 flex justify-end">
-        {status === "loading" ? null : session ? (
+        {status === "loading" ? null : session || user ? (
           <Button
             className="bg-red-500 hover:bg-red-600 text-white px-6"
             onClick={() => signOut({ callbackUrl: "/" })}
