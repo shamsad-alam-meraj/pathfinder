@@ -1,24 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthStore } from "@/store/useAuthStore";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [tab, setTab] = useState("login");
   const setUser = useAuthStore((state) => state.setUser);
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  // 🚀 Auto-redirect if session exists
+  useEffect(() => {
+    if (status === "authenticated" && session?.user) {
+      setUser({
+        name: session.user.name || "User",
+        email: session.user.email || "",
+        image: session.user.image || "",
+      });
+      router.push("/dashboard");
+    }
+  }, [status, session, setUser, router]);
 
   const handleGoogleLogin = async () => {
     const res = await signIn("google", { redirect: false });
     if (res?.ok) {
-      // For demo, store fake user data
-      setUser({ name: "Shamsad Meraj", email: "abc@def.com", image: "" });
+      // For demo, store fake user data if needed
+      setUser({
+        name: "Md. Shamsad Alam Meraj",
+        email: "shamsad.alam.meraj@gmail.com",
+        image: "",
+      });
+      router.push("/dashboard");
     }
   };
 
@@ -26,12 +46,14 @@ export default function LoginPage() {
     e.preventDefault();
     const form = e.currentTarget;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement)
+      .value;
 
     // Replace with real API auth
     if (email && password) {
-      setUser({ name: "John Doe", email });
+      setUser({ name: "Md. Shamsad Alam Meraj", email });
       console.log("Logged in:", email);
+      router.push("/dashboard");
     }
   };
 
@@ -40,12 +62,14 @@ export default function LoginPage() {
     const form = e.currentTarget;
     const name = (form.elements.namedItem("name") as HTMLInputElement).value;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const password = (form.elements.namedItem("password") as HTMLInputElement).value;
+    const password = (form.elements.namedItem("password") as HTMLInputElement)
+      .value;
 
     // Replace with real signup API
     if (name && email && password) {
       setUser({ name, email });
       console.log("Signed up:", name, email);
+      router.push("/dashboard");
     }
   };
 
@@ -75,8 +99,16 @@ export default function LoginPage() {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <Input name="email" type="email" placeholder="Email" required />
-                <Input name="password" type="password" placeholder="Password" required />
-                <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                <Input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  required
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                >
                   Log In
                 </Button>
               </motion.form>
@@ -91,10 +123,23 @@ export default function LoginPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <Input name="name" type="text" placeholder="Full Name" required />
+                <Input
+                  name="name"
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                />
                 <Input name="email" type="email" placeholder="Email" required />
-                <Input name="password" type="password" placeholder="Password" required />
-                <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">
+                <Input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  required
+                />
+                <Button
+                  type="submit"
+                  className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                >
                   Sign Up
                 </Button>
               </motion.form>

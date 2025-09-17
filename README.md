@@ -24,7 +24,6 @@
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Charts**: [Recharts](https://recharts.org/en-US/)
 - **State Management**: [Zustand](https://zustand-demo.pmnd.rs/)
-- **Data Fetching**: Next.js API routes or static JSON files for demo
 
 ---
 
