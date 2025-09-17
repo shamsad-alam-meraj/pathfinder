@@ -1,5 +1,8 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { useTripStore } from "./useTripStore";
+import { useGoalStore } from "./useGoalStore";
+import { useSettingsStore } from "./useSettingsStore";
 
 interface User {
   name: string;
@@ -18,7 +21,29 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       user: null,
       setUser: (user) => set({ user }),
-      logout: () => set({ user: null }),
+      logout: () => {
+        // Clear all other stores
+        useTripStore.persist.clearStorage?.();
+        useGoalStore.persist.clearStorage?.();
+        useSettingsStore.persist.clearStorage?.();
+
+        // Reset stores in memory
+        useTripStore.setState({ trips: useTripStore.getState().trips, startedTrips: [], wishlist: [] });
+        useGoalStore.setState({ goals: [] });
+        useSettingsStore.setState({
+          darkMode: false,
+          notifications: false,
+          locationAccess: false,
+          privacyMode: false,
+          language: "English",
+        });
+
+        //  Clear auth itself
+        set({ user: null });
+
+        // clear entire localStorage
+        if (typeof window !== "undefined") localStorage.clear();
+      },
     }),
     {
       name: "auth-storage",
