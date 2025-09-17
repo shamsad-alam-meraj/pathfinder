@@ -20,7 +20,9 @@ export interface Trip {
 interface TripState {
   trips: Trip[];
   startedTrips: number[];
+  wishlist: number[];
   startTrip: (id: number) => void;
+  toggleWishlist: (id: number) => void;
 }
 
 export const useTripStore = create<TripState>()(
@@ -28,25 +30,34 @@ export const useTripStore = create<TripState>()(
     (set) => ({
       trips: tripData,
       startedTrips: [],
+      wishlist: [],
       startTrip: (id: number) =>
         set((state) => ({
           startedTrips: state.startedTrips.includes(id)
             ? state.startedTrips
             : [...state.startedTrips, id],
         })),
+      toggleWishlist: (id: number) =>
+        set((state) => ({
+          wishlist: state.wishlist.includes(id)
+            ? state.wishlist.filter((tid) => tid !== id)
+            : [...state.wishlist, id],
+        })),
     }),
     {
       name: "trip-storage",
       storage: createJSONStorage(() => {
         if (typeof window !== "undefined") return localStorage;
-        // Dummy storage for SSR
         return {
           getItem: async () => null,
           setItem: async () => {},
           removeItem: async () => {},
         };
       }),
-      partialize: (state) => ({ startedTrips: state.startedTrips }),
+      partialize: (state) => ({
+        startedTrips: state.startedTrips,
+        wishlist: state.wishlist,
+      }),
     }
   )
 );

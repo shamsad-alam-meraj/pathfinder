@@ -14,19 +14,28 @@ export default function TripDetails({
   params: Promise<{ id: string }>;
 }) {
   const params = React.use(paramsPromise);
-  const id = params.id;
+  const id = Number(params.id);
 
-  const trip = useTripStore((state) =>
-    state.trips.find((t) => t.id === Number(id))
-  );
+  const trip = useTripStore((state) => state.trips.find((t) => t.id === id));
   const startTrip = useTripStore((state) => state.startTrip);
   const startedTrips = useTripStore((state) => state.startedTrips);
+  const toggleWishlist = useTripStore((state) => state.toggleWishlist);
+  const isWishlisted = useTripStore((state) =>
+    state.wishlist.includes(Number(id))
+  );
+  const hasStarted = startedTrips.includes(id);
 
-  const [wishlist, setWishlist] = useState(false);
-
-  // if (!trip)
-  //   return <p className="p-6 text-center text-red-500">Trip not found!</p>;
-  const hasStarted = startedTrips.includes(Number(id));
+  if (!trip) {
+    return (
+      <ProtectedRoute>
+        <div className="h-[calc(100%)] flex items-center justify-center">
+          <h6 className="p-6 text-center text-red-500 text-4xl font-bold">
+            Trip not found!
+          </h6>
+        </div>
+      </ProtectedRoute>
+    );
+  }
 
   return (
     <ProtectedRoute>
@@ -34,11 +43,11 @@ export default function TripDetails({
         <TripHeader trip={trip} />
         <TripOverview trip={trip} />
         <TripActions
-          wishlist={wishlist}
-          setWishlist={setWishlist}
-          startTrip={startTrip}
           hasStarted={hasStarted}
-          id={Number(id)}
+          startTrip={startTrip}
+          id={id}
+          wishlist={isWishlisted}
+          toggleWishlist={toggleWishlist}
         />
         <TripHighlights activities={trip.activities} />
       </div>
