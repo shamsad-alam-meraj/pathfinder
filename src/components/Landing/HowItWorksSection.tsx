@@ -49,7 +49,7 @@ export default function HowItWorksSection() {
               <h4 className="font-semibold text-xl mb-2">{step.title}</h4>
 
               {/* Description */}
-              <p className="text-gray-600">{step.description}</p>
+              <p>{step.description}</p>
             </div>
           );
         })}

@@ -53,7 +53,7 @@ export default function TestimonialCarousel() {
             <Card className="p-6 shadow-md hover:shadow-lg rounded-2xl">
               <CardContent className="flex flex-col items-center text-center">
                 <Users size={36} className="text-blue-600 mb-4" />
-                <p className="text-gray-300 mb-3">
+                <p className="mb-3">
                   {testimonials[current].text}
                 </p>
                 <h4 className="font-semibold text-blue-900">
