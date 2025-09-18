@@ -1,5 +1,21 @@
-import { FiHeart, FiShare2 } from "react-icons/fi";
+"use client";
+
+import { FiHeart } from "react-icons/fi";
 import { AiFillHeart } from "react-icons/ai";
+import { FiShare2 } from "react-icons/fi";
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  TelegramShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  TelegramIcon,
+  EmailIcon,
+} from "react-share";
+import { useState } from "react";
 
 interface TripActionsProps {
   hasStarted: boolean;
@@ -16,8 +32,15 @@ export default function TripActions({
   wishlist,
   toggleWishlist,
 }: TripActionsProps) {
+  const [showShare, setShowShare] = useState(false);
+
+  const shareUrl =
+    typeof window !== "undefined" ? window.location.href : "";
+  const title = "Check out this amazing trip on Path Finder!";
+
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex flex-wrap gap-4 relative">
+      {/* Start Trip */}
       <button
         onClick={() => startTrip(id)}
         className={`flex items-center gap-2 font-semibold py-2 px-4 rounded shadow-md transition ${
@@ -30,10 +53,41 @@ export default function TripActions({
         {hasStarted ? "Trip Started" : "Start Trip"}
       </button>
 
-      <button className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded shadow-md transition">
-        <FiShare2 /> Share
-      </button>
+      {/* Share Button with Dropdown */}
+      <div className="relative">
+        <button
+          onClick={() => setShowShare((prev) => !prev)}
+          className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded shadow-md transition"
+        >
+          <FiShare2 /> Share
+        </button>
 
+        {showShare && (
+          <div className="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-lg p-3 flex gap-3 z-50">
+            <FacebookShareButton url={shareUrl} title={title}>
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+
+            <TwitterShareButton url={shareUrl} title={title}>
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+
+            <WhatsappShareButton url={shareUrl} title={title} separator=" - ">
+              <WhatsappIcon size={32} round />
+            </WhatsappShareButton>
+
+            <TelegramShareButton url={shareUrl} title={title}>
+              <TelegramIcon size={32} round />
+            </TelegramShareButton>
+
+            <EmailShareButton url={shareUrl} subject="Travel Plan" body={title}>
+              <EmailIcon size={32} round />
+            </EmailShareButton>
+          </div>
+        )}
+      </div>
+
+      {/* Wishlist */}
       <button
         onClick={() => toggleWishlist(id)}
         className={`flex items-center gap-2 py-2 px-4 rounded shadow-md transition ${
