@@ -6,6 +6,9 @@ import DarkModeProvider from "@/components/Shared/DarkModeProvider";
 import Navbar from "./ Navbar";
 import { Sidebar } from "./Sidebar";
 import { useAuthStore } from "@/store/useAuthStore";
+import { useSettingsStore } from "@/store/useSettingsStore";
+import { useEffect } from "react";
+import i18n from "@/lib/i18n";
 
 export default function ClientLayoutWrapper({
   children,
@@ -13,6 +16,10 @@ export default function ClientLayoutWrapper({
   children: React.ReactNode;
 }) {
   const { user } = useAuthStore();
+   const language = useSettingsStore((state) => state.language);
+  useEffect(() => {
+    i18n.changeLanguage(language === "বাংলা" ? "bn" : language === "हिंदी" ? "hi" : "en");
+  }, [language]);
  
   return (
     <SessionProvider>

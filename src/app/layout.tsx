@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import ClientLayoutWrapper from "@/components/Shared/ClientLayoutWrapper";
+import "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Path Finder",

@@ -8,8 +8,10 @@ import { motion } from "framer-motion";
 import { FiMoon, FiBell, FiMapPin, FiShield } from "react-icons/fi";
 import { MdLanguage } from "react-icons/md";
 import ProtectedRoute from "@/components/Shared/ProtectedRoute";
+import { useTranslation } from "react-i18next";
 
 export default function SettingsPage() {
+  const { t } = useTranslation();
   const darkMode = useSettingsStore((state) => state.darkMode);
   const toggleDarkMode = useSettingsStore((state) => state.toggleDarkMode);
   const notifications = useSettingsStore((state) => state.notifications);
@@ -57,7 +59,7 @@ export default function SettingsPage() {
     <ProtectedRoute>
       <div className="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
         <h1 className="text-3xl font-bold mb-4 text-center md:text-left">
-          Settings
+          {t("settings")}
         </h1>
 
         {/* Profile Card */}
@@ -92,7 +94,7 @@ export default function SettingsPage() {
           <motion.div className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm">
             <div className="flex items-center gap-3">
               <FiMoon className="text-gray-700 dark:text-gray-200 text-xl" />
-              <span className="font-semibold">Dark Mode</span>
+              <span className="font-semibold">{t("darkMode")}</span>
             </div>
             <Switch checked={darkMode} onCheckedChange={toggleDarkMode} />
           </motion.div>
@@ -101,7 +103,7 @@ export default function SettingsPage() {
           <motion.div className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm">
             <div className="flex items-center gap-3">
               <FiBell className="text-gray-700 dark:text-gray-200 text-xl" />
-              <span className="font-semibold">Notifications</span>
+              <span className="font-semibold">{t("notifications")}</span>
             </div>
             <Switch
               checked={notifications}
@@ -113,7 +115,7 @@ export default function SettingsPage() {
           <motion.div className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm">
             <div className="flex items-center gap-3">
               <FiMapPin className="text-gray-700 dark:text-gray-200 text-xl" />
-              <span className="font-semibold">Location Access</span>
+              <span className="font-semibold">{t("location")}</span>
             </div>
             <Switch
               checked={locationAccess}
@@ -125,7 +127,7 @@ export default function SettingsPage() {
           <motion.div className="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm">
             <div className="flex items-center gap-3">
               <FiShield className="text-gray-700 dark:text-gray-200 text-xl" />
-              <span className="font-semibold">Privacy Mode</span>
+              <span className="font-semibold">{t("privacy")}</span>
             </div>
             <Switch checked={privacyMode} onCheckedChange={togglePrivacyMode} />
           </motion.div>
@@ -134,7 +136,7 @@ export default function SettingsPage() {
           <motion.div className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-sm gap-2 md:gap-4">
             <div className="flex items-center gap-3">
               <MdLanguage className="text-gray-700 dark:text-gray-200 text-xl" />
-              <span className="font-semibold">Language</span>
+              <span className="font-semibold">{t("language")}</span>
             </div>
             <select
               value={language}
@@ -142,10 +144,8 @@ export default function SettingsPage() {
               className="border rounded-md px-3 py-2 bg-white dark:bg-gray-700 dark:text-white text-gray-800 w-full md:w-auto"
             >
               <option>English</option>
-              <option>Spanish</option>
-              <option>French</option>
-              <option>German</option>
-              <option>Chinese</option>
+              <option>বাংলা</option>
+              <option>हिंदी</option>
             </select>
           </motion.div>
         </div>
