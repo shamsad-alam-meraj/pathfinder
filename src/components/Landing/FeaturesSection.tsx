@@ -1,33 +1,37 @@
 "use client";
 
 import { Briefcase, Target, Compass } from "lucide-react";
-
-const features = [
-  {
-    title: "Plan Trips",
-    description: "Create and organize your travel itineraries with ease.",
-    icon: Briefcase,
-    color: "bg-blue-100 text-blue-600",
-  },
-  {
-    title: "Track Goals",
-    description: "Stay motivated by setting and tracking your travel goals.",
-    icon: Target,
-    color: "bg-green-100 text-green-600",
-  },
-  {
-    title: "Explore Destinations",
-    description: "Discover new places to visit based on your preferences.",
-    icon: Compass,
-    color: "bg-purple-100 text-purple-600",
-  },
-];
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n"; 
 
 export default function FeaturesSection() {
+  const { t } = useTranslation();
+
+  const features = [
+    {
+      title: t("planTripsTitle"),
+      description: t("planTripsDesc"),
+      icon: Briefcase,
+      color: "bg-blue-100 text-blue-600",
+    },
+    {
+      title: t("trackGoalsTitle"),
+      description: t("trackGoalsDesc"),
+      icon: Target,
+      color: "bg-green-100 text-green-600",
+    },
+    {
+      title: t("exploreDestinationsTitle"),
+      description: t("exploreDestinationsDesc"),
+      icon: Compass,
+      color: "bg-purple-100 text-purple-600",
+    },
+  ];
+
   return (
     <section className="max-w-6xl w-full mb-20 px-4">
       <h2 className="text-4xl font-bold mb-12 text-center text-blue-700">
-        Key Features
+        {t("featuresTitle")}
       </h2>
 
       <div className="flex flex-col md:flex-row md:justify-between gap-6">

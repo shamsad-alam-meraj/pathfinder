@@ -1,0 +1,49 @@
+const English = {
+  settings: "Settings",
+  darkMode: "Dark Mode",
+  notifications: "Notifications",
+  location: "Location Access",
+  privacy: "Privacy Mode",
+  language: "Language",
+  profile: "Profile",
+  heroHeading: "Plan Smarter. Travel Better.",
+  heroSubtext:
+    "PathFinder helps you organize trips, track goals, and explore new destinations — all in one place.",
+  getStarted: "Get Started",
+  learnMore: "Learn More",
+  featuresTitle: "Key Features",
+  planTripsTitle: "Plan Trips",
+  planTripsDesc: "Create and organize your travel itineraries with ease.",
+  trackGoalsTitle: "Track Goals",
+  trackGoalsDesc: "Stay motivated by setting and tracking your travel goals.",
+  exploreDestinationsTitle: "Explore Destinations",
+  exploreDestinationsDesc:
+    "Discover new places to visit based on your preferences.",
+  testimonialTitle: "What Our Users Say",
+  testimonial1Text:
+    "PathFinder made my trips organized and stress-free. Highly recommended!",
+  testimonial1Name: "Alice",
+  testimonial2Text:
+    "I love tracking my travel goals and seeing my progress visually.",
+  testimonial2Name: "Bob",
+  testimonial3Text:
+    "Discovering new destinations has never been this easy and fun.",
+  testimonial3Name: "Clara",
+  testimonial4Text: "Planning trips has never been easier. Great app!",
+  testimonial4Name: "David",
+  testimonial5Text: "I love PathFinder! Keeps me motivated.",
+  testimonial5Name: "Eva",
+  howItWorksTitle: "How It Works",
+  step1Title: "Plan Trips",
+  step1Desc: "Organize your itineraries with simple steps.",
+  step2Title: "Track Goals",
+  step2Desc: "Monitor your travel achievements and progress.",
+  step3Title: "Explore",
+  step3Desc: "Discover new destinations that fit your style.",
+  newsletterTitle: "Stay Updated",
+  newsletterSubtext:
+    "Subscribe to our newsletter to get the latest updates and travel tips.",
+  newsletterPlaceholder: "Enter your email",
+  newsletterButton: "Subscribe",
+};
+export default English;
