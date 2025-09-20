@@ -1,8 +1,7 @@
 "use client";
 
-import { FiHeart } from "react-icons/fi";
+import { FiHeart, FiShare2 } from "react-icons/fi";
 import { AiFillHeart } from "react-icons/ai";
-import { FiShare2 } from "react-icons/fi";
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -16,6 +15,7 @@ import {
   EmailIcon,
 } from "react-share";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface TripActionsProps {
   hasStarted: boolean;
@@ -32,11 +32,11 @@ export default function TripActions({
   wishlist,
   toggleWishlist,
 }: TripActionsProps) {
+  const { t } = useTranslation();
   const [showShare, setShowShare] = useState(false);
 
-  const shareUrl =
-    typeof window !== "undefined" ? window.location.href : "";
-  const title = "Check out this amazing trip on Path Finder!";
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const title = t("shareTitle"); // Translatable share title
 
   return (
     <div className="flex flex-wrap gap-4 relative">
@@ -50,7 +50,7 @@ export default function TripActions({
         }`}
         disabled={hasStarted}
       >
-        {hasStarted ? "Trip Started" : "Start Trip"}
+        {hasStarted ? t("tripStarted") : t("startTrip")}
       </button>
 
       {/* Share Button with Dropdown */}
@@ -59,7 +59,7 @@ export default function TripActions({
           onClick={() => setShowShare((prev) => !prev)}
           className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded shadow-md transition"
         >
-          <FiShare2 /> Share
+          <FiShare2 /> {t("share")}
         </button>
 
         {showShare && (
@@ -80,7 +80,7 @@ export default function TripActions({
               <TelegramIcon size={32} round />
             </TelegramShareButton>
 
-            <EmailShareButton url={shareUrl} subject="Travel Plan" body={title}>
+            <EmailShareButton url={shareUrl} subject={t("shareEmailSubject")} body={title}>
               <EmailIcon size={32} round />
             </EmailShareButton>
           </div>
@@ -96,7 +96,7 @@ export default function TripActions({
             : "bg-gray-200 text-gray-800 hover:bg-red-500 hover:text-white"
         }`}
       >
-        {wishlist ? <AiFillHeart /> : <FiHeart />} Wishlist
+        {wishlist ? <AiFillHeart /> : <FiHeart />} {t("wishlist")}
       </button>
     </div>
   );
