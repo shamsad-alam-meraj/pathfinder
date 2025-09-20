@@ -8,24 +8,23 @@ import English from "../translations/English";
 import Bengali from "../translations/Bengali";
 
 i18n
-  .use(LanguageDetector)
+  .use(LanguageDetector) // detects browser language
   .use(initReactI18next)
   .init({
     resources: {
-      en: {
-        translation: English,
-      },
-      bn: {
-        translation: Bengali,
-      },
-      hi: {
-        translation: Hindi,
-      },
+      en: { translation: English },
+      bn: { translation: Bengali },
+      hi: { translation: Hindi },
     },
-    lng: "en",
+    lng:
+      typeof window !== "undefined"
+        ? localStorage.getItem("lang") || "en"
+        : "en",
     fallbackLng: "en",
-    interpolation: {
-      escapeValue: false,
+    interpolation: { escapeValue: false },
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
     },
   });
 

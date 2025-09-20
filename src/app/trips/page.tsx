@@ -12,8 +12,10 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 export default function TripList() {
+  const { t } = useTranslation();
   const trips = useTripStore((state) => state.trips);
 
   const initialTrips = trips.slice(0, 12);
@@ -21,9 +23,7 @@ export default function TripList() {
 
   type ChartData = { month: string; count: number };
 
-  // Example chart data: trips per month
   const chartData: ChartData[] = trips.reduce<ChartData[]>((acc, trip) => {
-    // Extract the month from the string, e.g., "Oct 1–10, 2025" -> "Oct"
     const monthMatch = trip.date.match(/^[A-Za-z]+/);
     if (!monthMatch) return acc;
     const month = monthMatch[0];
@@ -40,9 +40,7 @@ export default function TripList() {
   return (
     <ProtectedRoute>
       <div className="space-y-8">
-        {/* Top Section */}
         <div className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 rounded-xl shadow-lg overflow-hidden">
-          {/* Decorative SVG/Blob */}
           <svg
             className="absolute -top-10 -right-10 w-40 h-40 opacity-20"
             viewBox="0 0 200 200"
@@ -56,39 +54,34 @@ export default function TripList() {
           </svg>
 
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            {/* Text */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                Plan Your Next Adventure!
+                {t("planNextAdventure")}
               </h2>
               <p className="text-white/90 text-lg md:text-xl">
-                Explore your upcoming trips, track your travel goals, and
-                discover new destinations.
+                {t("exploreUpcomingTrips")}
               </p>
             </div>
 
-            {/* CTA Button */}
             <div>
               <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-50 transition">
-                Add New Trip
+                {t("addNewTrip")}
               </button>
             </div>
           </div>
         </div>
-
         {/* Trips Grid */}
         <div>
-          <h1 className="text-3xl font-bold mb-6">Recommended Trips</h1>
+          <h1 className="text-3xl font-bold mb-6">{t("recommendedTrips")}</h1>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {initialTrips.map((trip) => (
               <TripCard key={trip.id} trip={trip} />
             ))}
           </div>
         </div>
-
         {/* Recent Trips */}
         <div>
-          <h1 className="text-3xl font-bold mb-6">Recent Trips</h1>
+          <h1 className="text-3xl font-bold mb-6">{t("recentTrips")}</h1>
           <div className="flex gap-4 overflow-x-auto">
             {recentTrips.map((trip) => (
               <SmallTripCard key={trip.id} trip={trip} />
@@ -97,8 +90,8 @@ export default function TripList() {
         </div>
 
         {/* Trip Insights */}
-        <div className=" rounded-lg">
-          <h1 className="text-3xl font-bold mb-6">Trip Insights</h1>
+        <div className="rounded-lg">
+          <h1 className="text-3xl font-bold mb-6">{t("tripInsights")}</h1>
           <div className="w-full h-64">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>

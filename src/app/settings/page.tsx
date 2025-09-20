@@ -140,7 +140,10 @@ export default function SettingsPage() {
             </div>
             <select
               value={language}
-              onChange={(e) => setLanguage(e.target.value)}
+              onChange={(e) => {
+                setLanguage(e.target.value);
+                localStorage.setItem("lang", e.target.value);
+              }}
               className="border rounded-md px-3 py-2 bg-white dark:bg-gray-700 dark:text-white text-gray-800 w-full md:w-auto"
             >
               <option>English</option>
