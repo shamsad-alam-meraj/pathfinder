@@ -8,7 +8,7 @@ import English from "../translations/English";
 import Bengali from "../translations/Bengali";
 
 i18n
-  .use(LanguageDetector) // detects browser language
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: {
@@ -26,6 +26,7 @@ i18n
       order: ["localStorage", "navigator"],
       caches: ["localStorage"],
     },
+    react: { useSuspense: false },
   });
 
 export default i18n;

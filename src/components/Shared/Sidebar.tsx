@@ -8,11 +8,11 @@ export function Sidebar() {
   const { t } = useTranslation();
 
   const navItems = [
-    { name: t("dashboard"), href: "/dashboard", icon: Home },
-    { name: t("trips"), href: "/trips", icon: Briefcase },
-    { name: t("goals"), href: "/goals", icon: Goal },
-    { name: t("explore"), href: "/explore", icon: Compass },
-    { name: t("settings"), href: "/settings", icon: Settings },
+    { key: "dashboard", href: "/dashboard", icon: Home },
+    { key: "trips", href: "/trips", icon: Briefcase },
+    { key: "goals", href: "/goals", icon: Goal },
+    { key: "explore", href: "/explore", icon: Compass },
+    { key: "settings", href: "/settings", icon: Settings },
   ];
 
   return (
@@ -20,12 +20,12 @@ export function Sidebar() {
       <nav className="flex flex-col gap-2 px-4">
         {navItems.map((item) => (
           <Link
-            key={item.name}
+            key={item.key}
             href={item.href}
             className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition"
           >
             <item.icon size={18} />
-            <span>{item.name}</span>
+            <span>{t(item.key)}</span>
           </Link>
         ))}
       </nav>
