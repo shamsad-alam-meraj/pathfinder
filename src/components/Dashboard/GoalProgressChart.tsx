@@ -6,22 +6,36 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 interface GoalChartProps {
   data: { name: string; value: number; fill: string }[];
 }
 
 export default function GoalProgressChart({ data }: GoalChartProps) {
+  const { t } = useTranslation();
+
+  // Map data to translate the 'name' field
+  const translatedData = data.map((item) => ({
+    ...item,
+    name:
+      item.name === "Started"
+        ? t("started")
+        : item.name === "Wishlisted"
+        ? t("wishlisted")
+        : t("remaining"),
+  }));
+
   return (
     <div className="w-full h-60 sm:h-72 md:h-80">
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
-          cx="50%" // center horizontally for mobile
+          cx="50%"
           cy="50%"
           innerRadius="20%"
-          outerRadius="90%" // bigger on small screens
+          outerRadius="90%"
           barSize={18}
-          data={data}
+          data={translatedData}
         >
           <RadialBar
             dataKey="value"

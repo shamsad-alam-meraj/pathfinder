@@ -10,12 +10,14 @@ import { useRouter } from "next/navigation";
 import { FiPlus } from "react-icons/fi";
 import DashboardLoading from "./loading";
 import { Suspense } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Dashboard() {
   const router = useRouter();
   const trips = useTripStore((state) => state.trips);
   const startedTrips = useTripStore((state) => state.startedTrips);
   const wishlist = useTripStore((state) => state.wishlist);
+  const { t } = useTranslation();
 
   // Analytics counts
   const totalTrips = trips.length;
@@ -36,8 +38,8 @@ export default function Dashboard() {
       <ProtectedRoute>
         <div className="px-5 md:px-10 space-y-10">
           {/* Hero / Header */}
-          <motion.h1 className="text-4xl md:text-6xl lg:text-8xl font-bold leading-tight">
-            Plan your journeys, track your goals, explore smarter
+          <motion.h1 className="text-2xl md:text-6xl lg:text-8xl font-bold leading-tight">
+            {t("heroHeading2")}
           </motion.h1>
 
           <motion.h3
@@ -45,7 +47,7 @@ export default function Dashboard() {
             animate={{ opacity: 1, y: 0 }}
             className="text-xl md:text-3xl lg:text-4xl font-bold pt-6 pb-5"
           >
-            Welcome back, John
+            {t("welcome", { name: "John" })}
           </motion.h3>
 
           {/* Left Column: Start Trip + Upcoming Trips */}
@@ -57,20 +59,19 @@ export default function Dashboard() {
                  transition-transform duration-200 hover:scale-101 shadow-md"
                 onClick={() => router.push("/trips")}
               >
-                {/* Icon wrapper for circle background */}
                 <span className="flex items-center justify-center w-10 h-10 bg-white rounded-full">
                   <FiPlus className="text-blue-500 font-bold" size={24} />
                 </span>
-                Start a New Trip
+                {t("startNewTrip")}
               </Button>
 
               {/* Started Trips Section */}
               <section className="space-y-4">
                 <h2 className="text-xl md:text-2xl font-semibold">
-                  Started Trips
+                  {t("startedTrips")}
                 </h2>
                 {startedTripsData.length === 0 && (
-                  <p className="text-yellow-500">No trips started yet.</p>
+                  <p className="text-yellow-500">{t("noStartedTrips")}</p>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {startedTripsData.map((trip) => (
@@ -98,10 +99,10 @@ export default function Dashboard() {
               {/* Wishlisted Trips Section */}
               <section className="space-y-4 mt-6">
                 <h2 className="text-xl md:text-2xl font-semibold">
-                  Wishlisted Trips
+                  {t("wishlistedTrips")}
                 </h2>
                 {wishlistedTripsData.length === 0 && (
-                  <p className="text-gray-500">No trips wishlisted yet.</p>
+                  <p className="text-gray-500">{t("noWishlistedTrips")}</p>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {wishlistedTripsData.map((trip) => (
@@ -130,23 +131,23 @@ export default function Dashboard() {
             {/* Right Column: Goal Progress & Chart */}
             <section className="flex-1 space-y-6">
               <h2 className="text-2xl md:text-4xl font-semibold mb-4">
-                Goal Progress
+                {t("goalProgress")}
               </h2>
               <GoalProgressChart data={chartData} />
 
               {/* Analytics Summary */}
               <div className="mt-6 border rounded-lg p-4 shadow-sm space-y-2">
-                <h3 className="font-semibold text-lg">Trips Analytics</h3>
+                <h3 className="font-semibold text-lg">{t("tripsAnalytics")}</h3>
                 <div className="flex justify-between">
-                  <span>Total Trips:</span>
+                  <span>{t("totalTrips")}</span>
                   <span>{totalTrips}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Started Trips:</span>
+                  <span>{t("startedTripsLabel")}</span>
                   <span>{totalStarted}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Wishlisted Trips:</span>
+                  <span>{t("wishlistedTripsLabel")}</span>
                   <span>{totalWishlisted}</span>
                 </div>
               </div>

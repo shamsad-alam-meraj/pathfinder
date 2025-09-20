@@ -50,5 +50,21 @@ const Bengali = {
     "সর্বশেষ আপডেট এবং ভ্রমণ টিপস পেতে আমাদের নিউজলেটারে সাবস্ক্রাইব করুন।",
   newsletterPlaceholder: "আপনার ইমেইল লিখুন",
   newsletterButton: "সাবস্ক্রাইব",
+  heroHeading2:
+    "আপনার যাত্রা পরিকল্পনা করুন, লক্ষ্য ট্র্যাক করুন, আরও স্মার্টভাবে অন্বেষণ করুন",
+  welcome: "ফিরে স্বাগতম, {{name}}",
+  startNewTrip: "নতুন ট্রিপ শুরু করুন",
+  startedTrips: "শুরু করা ট্রিপসমূহ",
+  noStartedTrips: "কোনো ট্রিপ শুরু করা হয়নি।",
+  wishlistedTrips: "ইচ্ছেতালিকাভুক্ত ট্রিপসমূহ",
+  noWishlistedTrips: "কোনো ট্রিপ ইচ্ছেতালিকায় নেই।",
+  goalProgress: "লক্ষ্য অগ্রগতি",
+  tripsAnalytics: "ট্রিপ বিশ্লেষণ",
+  totalTrips: "মোট ট্রিপ:",
+  startedTripsLabel: "শুরু করা ট্রিপসমূহ:",
+  wishlistedTripsLabel: "ইচ্ছেতালিকায় থাকা ট্রিপসমূহ:",
+  started: "শুরু করা হয়েছে",
+  wishlisted: "ইচ্ছেতালিকাভুক্ত",
+  remaining: "বাকি",
 };
 export default Bengali;

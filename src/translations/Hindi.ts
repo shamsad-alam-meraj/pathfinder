@@ -50,5 +50,21 @@ const Hindi = {
     "नवीनतम अपडेट और यात्रा टिप्स पाने के लिए हमारे न्यूज़लेटर की सदस्यता लें।",
   newsletterPlaceholder: "अपना ईमेल दर्ज करें",
   newsletterButton: "सब्सक्राइब करें",
+  heroHeading2:
+    "अपनी यात्राओं की योजना बनाएं, अपने लक्ष्यों को ट्रैक करें, स्मार्ट तरीके से अन्वेषण करें",
+  welcome: "वापसी पर स्वागत है, {{name}}",
+  startNewTrip: "नई यात्रा शुरू करें",
+  startedTrips: "शुरू की गई यात्राएँ",
+  noStartedTrips: "कोई यात्रा अभी शुरू नहीं हुई।",
+  wishlistedTrips: "इच्छा सूची में यात्राएँ",
+  noWishlistedTrips: "कोई यात्रा इच्छा सूची में नहीं है।",
+  goalProgress: "लक्ष्य प्रगति",
+  tripsAnalytics: "यात्रा विश्लेषण",
+  totalTrips: "कुल यात्राएँ:",
+  startedTripsLabel: "शुरू की गई यात्राएँ:",
+  wishlistedTripsLabel: "इच्छा सूची में:",
+  started: "शुरू की गई",
+  wishlisted: "इच्छा सूची में",
+  remaining: "शेष",
 };
 export default Hindi;
