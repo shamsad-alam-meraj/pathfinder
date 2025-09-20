@@ -1,4 +1,4 @@
-import { tripData } from "@/lib/dummy-data";
+import { getTripData } from "@/lib/dummy-data";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
@@ -28,7 +28,7 @@ interface TripState {
 export const useTripStore = create<TripState>()(
   persist(
     (set) => ({
-      trips: tripData,
+      trips: getTripData(),
       startedTrips: [],
       wishlist: [],
       startTrip: (id: number) =>
