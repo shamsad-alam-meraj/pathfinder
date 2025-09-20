@@ -5,15 +5,20 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { signOut, useSession } from "next-auth/react";
 import { useAuthStore } from "@/store/useAuthStore";
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n";
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const { data: session, status } = useSession();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+
   const handleLogout = async () => {
     logout();
     await signOut({ callbackUrl: "/" });
   };
+
   return (
     <div className="py-5 px-6 lg:px-10 lg:flex items-center border-b hidden bg-white dark:bg-gray-950">
       {/* Logo */}
@@ -27,7 +32,7 @@ export default function Navbar() {
             style={{ width: "auto", height: "auto" }}
           />
           <h6 className="pl-3 font-bold text-2xl text-purple-800">
-            Path Finder
+            {t("appName")}
           </h6>
         </Link>
       </div>
@@ -42,12 +47,12 @@ export default function Navbar() {
             className="bg-red-500 hover:bg-red-600 text-white px-6"
             onClick={handleLogout}
           >
-            Log Out
+            {t("logout")}
           </Button>
         ) : (
           <Link href="/login">
             <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6">
-              Log In
+              {t("login")}
             </Button>
           </Link>
         )}

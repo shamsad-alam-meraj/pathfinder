@@ -1,4 +1,11 @@
 const Bengali = {
+  appName: "Path Finder",
+  login: "লগ ইন",
+  logout: "লগ আউট",
+  dashboard: "ড্যাশবোর্ড",
+  trips: "ট্রিপস",
+  goals: "লক্ষ্য",
+  explore: "এক্সপ্লোর",
   settings: "সেটিংস",
   darkMode: "ডার্ক মোড",
   notifications: "নোটিফিকেশন",
@@ -7,7 +14,8 @@ const Bengali = {
   language: "ভাষা",
   profile: "প্রোফাইল",
   heroHeading: "স্মার্টভাবে পরিকল্পনা করুন। ভালোভাবে ভ্রমণ করুন।",
-  heroSubtext: "PathFinder আপনাকে ভ্রমণ পরিকল্পনা, লক্ষ্য নির্ধারণ এবং নতুন গন্তব্য আবিষ্কারে সাহায্য করে — সব এক জায়গায়।",
+  heroSubtext:
+    "PathFinder আপনাকে ভ্রমণ পরিকল্পনা, লক্ষ্য নির্ধারণ এবং নতুন গন্তব্য আবিষ্কারে সাহায্য করে — সব এক জায়গায়।",
   getStarted: "শুরু করুন",
   learnMore: "আরও জানুন",
   featuresTitle: "মূল বৈশিষ্ট্যসমূহ",
@@ -18,9 +26,11 @@ const Bengali = {
   exploreDestinationsTitle: "গন্তব্য আবিষ্কার করুন",
   exploreDestinationsDesc: "আপনার পছন্দ অনুযায়ী নতুন জায়গা আবিষ্কার করুন।",
   testimonialTitle: "আমাদের ব্যবহারকারীরা যা বলছেন",
-  testimonial1Text: "PathFinder আমার ভ্রমণগুলোকে সুশৃঙ্খল ও ঝামেলামুক্ত করেছে। অত্যন্ত সুপারিশ করছি!",
+  testimonial1Text:
+    "PathFinder আমার ভ্রমণগুলোকে সুশৃঙ্খল ও ঝামেলামুক্ত করেছে। অত্যন্ত সুপারিশ করছি!",
   testimonial1Name: "অ্যালিস",
-  testimonial2Text: "আমি আমার ভ্রমণের লক্ষ্য ট্র্যাক করতে এবং অগ্রগতি দেখতে ভালোবাসি।",
+  testimonial2Text:
+    "আমি আমার ভ্রমণের লক্ষ্য ট্র্যাক করতে এবং অগ্রগতি দেখতে ভালোবাসি।",
   testimonial2Name: "বব",
   testimonial3Text: "নতুন গন্তব্য আবিষ্কার এত সহজ এবং মজার আগে কখনও হয়নি।",
   testimonial3Name: "ক্লারা",
@@ -35,8 +45,9 @@ const Bengali = {
   step2Desc: "আপনার ভ্রমণের অর্জন ও অগ্রগতি পর্যবেক্ষণ করুন।",
   step3Title: "এক্সপ্লোর করুন",
   step3Desc: "আপনার স্টাইল অনুযায়ী নতুন গন্তব্য আবিষ্কার করুন।",
-   newsletterTitle: "আপডেট থাকুন",
-  newsletterSubtext: "সর্বশেষ আপডেট এবং ভ্রমণ টিপস পেতে আমাদের নিউজলেটারে সাবস্ক্রাইব করুন।",
+  newsletterTitle: "আপডেট থাকুন",
+  newsletterSubtext:
+    "সর্বশেষ আপডেট এবং ভ্রমণ টিপস পেতে আমাদের নিউজলেটারে সাবস্ক্রাইব করুন।",
   newsletterPlaceholder: "আপনার ইমেইল লিখুন",
   newsletterButton: "সাবস্ক্রাইব",
 };

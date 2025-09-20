@@ -1,4 +1,11 @@
 const English = {
+  appName: "Path Finder",
+  login: "Log In",
+  logout: "Log Out",
+  dashboard: "Dashboard",
+  trips: "Trips",
+  goals: "Goals",
+  explore: "Explore",
   settings: "Settings",
   darkMode: "Dark Mode",
   notifications: "Notifications",

@@ -1,4 +1,11 @@
 const Hindi = {
+  appName: "Path Finder",
+  login: "लॉग इन",
+  logout: "लॉग आउट",
+  dashboard: "डैशबोर्ड",
+  trips: "यात्राएँ",
+  goals: "लक्ष्य",
+  explore: "एक्सप्लोर",
   settings: "सेटिंग्स",
   darkMode: "डार्क मोड",
   notifications: "सूचनाएँ",
@@ -7,7 +14,8 @@ const Hindi = {
   language: "भाषा",
   profile: "प्रोफ़ाइल",
   heroHeading: "स्मार्ट तरीके से योजना बनाएं। बेहतर यात्रा करें।",
-  heroSubtext: "PathFinder आपकी यात्राओं को व्यवस्थित करने, लक्ष्य ट्रैक करने और नए गंतव्य खोजने में मदद करता है — सब एक ही जगह।",
+  heroSubtext:
+    "PathFinder आपकी यात्राओं को व्यवस्थित करने, लक्ष्य ट्रैक करने और नए गंतव्य खोजने में मदद करता है — सब एक ही जगह।",
   getStarted: "शुरू करें",
   learnMore: "और जानें",
   featuresTitle: "मुख्य विशेषताएँ",
@@ -18,9 +26,11 @@ const Hindi = {
   exploreDestinationsTitle: "गंतव्य खोजें",
   exploreDestinationsDesc: "अपनी पसंद के आधार पर नए स्थान खोजें।",
   testimonialTitle: "हमारे उपयोगकर्ता क्या कहते हैं",
-  testimonial1Text: "PathFinder ने मेरी यात्राओं को संगठित और तनाव-मुक्त बना दिया। अत्यधिक अनुशंसित!",
+  testimonial1Text:
+    "PathFinder ने मेरी यात्राओं को संगठित और तनाव-मुक्त बना दिया। अत्यधिक अनुशंसित!",
   testimonial1Name: "ऐलिस",
-  testimonial2Text: "मुझे अपने यात्रा लक्ष्यों को ट्रैक करना और प्रगति को देखना पसंद है।",
+  testimonial2Text:
+    "मुझे अपने यात्रा लक्ष्यों को ट्रैक करना और प्रगति को देखना पसंद है।",
   testimonial2Name: "बॉब",
   testimonial3Text: "नए गंतव्य खोजना इतना आसान और मजेदार पहले कभी नहीं था।",
   testimonial3Name: "क्लारा",
@@ -35,8 +45,9 @@ const Hindi = {
   step2Desc: "अपनी यात्रा की उपलब्धियों और प्रगति की निगरानी करें।",
   step3Title: "खोजें",
   step3Desc: "अपनी शैली के अनुसार नए गंतव्य खोजें।",
-    newsletterTitle: "अपडेट रहें",
-  newsletterSubtext: "नवीनतम अपडेट और यात्रा टिप्स पाने के लिए हमारे न्यूज़लेटर की सदस्यता लें।",
+  newsletterTitle: "अपडेट रहें",
+  newsletterSubtext:
+    "नवीनतम अपडेट और यात्रा टिप्स पाने के लिए हमारे न्यूज़लेटर की सदस्यता लें।",
   newsletterPlaceholder: "अपना ईमेल दर्ज करें",
   newsletterButton: "सब्सक्राइब करें",
 };
