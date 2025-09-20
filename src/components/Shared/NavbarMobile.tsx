@@ -6,22 +6,23 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useSession, signOut } from "next-auth/react";
+import { useTranslation } from "react-i18next";
 
 export default function NavbarMobile() {
   const [open, setOpen] = useState(false);
-
   const user = useAuthStore((state) => state.user);
   const { data: session } = useSession();
+  const { t } = useTranslation();
 
   const isLoggedIn = !!user || !!session;
 
   // Menu links for logged-in users
   const navLinks = [
-    { title: "Dashboard", link: "/dashboard" },
-    { title: "Trips", link: "/trips" },
-    { title: "Goals", link: "/goals" },
-    { title: "Explore", link: "/explore" },
-    { title: "Settings", link: "/settings" },
+    { title: t("dashboard"), link: "/dashboard" },
+    { title: t("trips"), link: "/trips" },
+    { title: t("goals"), link: "/goals" },
+    { title: t("explore"), link: "/explore" },
+    { title: t("settings"), link: "/settings" },
   ];
 
   const handleLogout = () => {
@@ -35,15 +36,8 @@ export default function NavbarMobile() {
       {/* Navbar Top */}
       <div className="flex items-center justify-between py-4 px-4">
         <Link href="/" className="flex items-center">
-          <Image
-            src="/images/logo/logo.png"
-            alt="logo"
-            width={40}
-            height={40}
-          />
-          <h6 className="pl-2 font-bold text-xl text-purple-800">
-            Path Finder
-          </h6>
+          <Image src="/images/logo/logo.png" alt="logo" width={40} height={40} />
+          <h6 className="pl-2 font-bold text-xl text-purple-800">Path Finder</h6>
         </Link>
 
         {isLoggedIn ? (
@@ -70,9 +64,7 @@ export default function NavbarMobile() {
           </button>
         ) : (
           <Link href="/login">
-            <button className="bg-purple-600 text-white px-4 py-2 rounded">
-              Log In
-            </button>
+            <button className="bg-purple-600 text-white px-4 py-2 rounded">{t("login")}</button>
           </Link>
         )}
       </div>
@@ -103,7 +95,7 @@ export default function NavbarMobile() {
                   onClick={handleLogout}
                   className="w-full bg-red-500 text-white py-2 rounded"
                 >
-                  Log Out
+                  {t("logout")}
                 </button>
               </nav>
             </motion.div>

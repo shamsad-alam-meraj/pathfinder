@@ -1,18 +1,22 @@
 "use client";
 import { Home, Briefcase, Goal, Compass, Settings } from "lucide-react";
 import Link from "next/link";
-
-const navItems = [
-  { name: "Dashboard", href: "/dashboard", icon: Home },
-  { name: "Trips", href: "/trips", icon: Briefcase },
-  { name: "Goals", href: "/goals", icon: Goal },
-  { name: "Explore", href: "/explore", icon: Compass },
-  { name: "Settings", href: "/settings", icon: Settings },
-];
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n";
 
 export function Sidebar() {
+  const { t } = useTranslation();
+
+  const navItems = [
+    { name: t("dashboard"), href: "/dashboard", icon: Home },
+    { name: t("trips"), href: "/trips", icon: Briefcase },
+    { name: t("goals"), href: "/goals", icon: Goal },
+    { name: t("explore"), href: "/explore", icon: Compass },
+    { name: t("settings"), href: "/settings", icon: Settings },
+  ];
+
   return (
-    <aside className="w-52 border-r  lg:flex flex-col py-6 hidden bg-white dark:bg-gray-950">
+    <aside className="w-52 border-r lg:flex flex-col py-6 hidden bg-white dark:bg-gray-950">
       <nav className="flex flex-col gap-2 px-4">
         {navItems.map((item) => (
           <Link
