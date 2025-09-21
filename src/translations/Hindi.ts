@@ -88,6 +88,49 @@ const Hindi = {
   wishlist: "इच्छा सूची",
   shareTitle: "Path Finder पर इस अद्भुत यात्रा को देखें!",
   shareEmailSubject: "यात्रा योजना",
+  // goal
+  topBanner: {
+    heading: "अपने यात्रा के सपनों को पूरा करें!",
+    subtext: "हर कदम पर प्रेरित रहें और अपने लक्ष्यों को ट्रैक करें।",
+  },
+  motivation: {
+    tipTitle: "सुझाव: नियमित रहें",
+    tipText:
+      "छोटी-छोटी दैनिक प्रगति जुड़कर बड़ा बदलाव लाती है। अपने कदमों को ट्रैक करें और माइलस्टोन मनाएं।",
+    challengeTitle: "चुनौती: सीमाएँ बढ़ाएँ",
+    challengeText:
+      "इस सप्ताह एक उच्च लक्ष्य तय करें और देखें आप कितनी दूर जा सकते हैं!",
+    motivationTitle: "प्रेरणा: सफलता की कल्पना करें",
+    motivationText:
+      "अपने यात्रा सपनों को पूरा करते हुए खुद की कल्पना करें। यह आपको केंद्रित और प्रेरित रखता है।",
+  },
+  itineraries: {
+    title: "यात्रा योजनाएँ",
+    draggableHint: "ड्रैगेबल ~ प्राथमिकता",
+    addButton: "नई योजना जोड़ें",
+    dialogTitle: "नई यात्रा योजना बनाएँ",
+    dialogDescription: "शीर्षक, गतिविधियाँ और पूर्णता प्रतिशत जोड़ें।",
+    inputTitle: "शीर्षक",
+    inputActivities: "गतिविधियाँ (कॉमा से अलग करें)",
+    inputCompletion: "पूर्णता %",
+    addConfirm: "जोड़ें",
+    activitiesLabel: "गतिविधियाँ",
+  },
+highlights: {
+  totalGoals: "कुल लक्ष्य",
+  overallProgress: "कुल प्रगति",
+  totalStepsCompleted: "पूरा किए गए कदम",
+},
+goals2: {
+  title: "आपके लक्ष्य",
+},
+addGoal: {
+  titleLabel: "लक्ष्य शीर्षक",
+  titlePlaceholder: "अपना लक्ष्य दर्ज करें...",
+  targetLabel: "लक्ष्य",
+  progressLabel: "प्रगति",
+  button: "लक्ष्य जोड़ें",
+},
 
   // trips
   trip: {

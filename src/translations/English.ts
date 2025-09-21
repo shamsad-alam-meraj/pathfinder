@@ -89,6 +89,49 @@ const English = {
   wishlist: "Wishlist",
   shareTitle: "Check out this amazing trip on Path Finder!",
   shareEmailSubject: "Travel Plan",
+  // goal
+  topBanner: {
+    heading: "Achieve Your Travel Dreams!",
+    subtext: "Stay motivated and track your goals every step of the way.",
+  },
+  motivation: {
+    tipTitle: "Tip: Stay Consistent",
+    tipText:
+      "Small daily progress adds up. Track your steps and celebrate milestones.",
+    challengeTitle: "Challenge: Push Limits",
+    challengeText:
+      "Try setting a higher target this week to see how far you can go!",
+    motivationTitle: "Motivation: Visualize Success",
+    motivationText:
+      "Imagine yourself achieving your travel dreams. It keeps you focused and motivated.",
+  },
+  itineraries: {
+    title: "Itineraries",
+    draggableHint: "Draggable ~ Priority",
+    addButton: "Add Itinerary",
+    dialogTitle: "Create New Itinerary",
+    dialogDescription: "Add title, activities, and completion.",
+    inputTitle: "Title",
+    inputActivities: "Activities (comma separated)",
+    inputCompletion: "Completion %",
+    addConfirm: "Add",
+    activitiesLabel: "Activities",
+  },
+  highlights: {
+    totalGoals: "Total Goals",
+    overallProgress: "Overall Progress",
+    totalStepsCompleted: "Total Steps Completed",
+  },
+  goals2: {
+    title: "Your Goals",
+  },
+  addGoal: {
+    titleLabel: "Goal Title",
+    titlePlaceholder: "Enter your goal...",
+    targetLabel: "Target",
+    progressLabel: "Progress",
+    button: "Add Goal",
+  },
 
   // trips
   trip: {
