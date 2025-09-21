@@ -88,6 +88,49 @@ const Bengali = {
   wishlist: "ইচ্ছে তালিকা",
   shareTitle: "এই অসাধারণ ভ্রমণ Path Finder-এ দেখুন!",
   shareEmailSubject: "ভ্রমণ পরিকল্পনা",
+  // goal
+  topBanner: {
+    heading: "আপনার ভ্রমণের স্বপ্ন পূরণ করুন!",
+    subtext: "প্রতিটি ধাপে অনুপ্রাণিত থাকুন এবং আপনার লক্ষ্য ট্র্যাক করুন।",
+  },
+  motivation: {
+    tipTitle: "টিপস: নিয়মিত থাকুন",
+    tipText:
+      "প্রতিদিনের ছোট ছোট অগ্রগতি বড় পরিবর্তন আনে। আপনার পদক্ষেপ ট্র্যাক করুন এবং মাইলস্টোন উদযাপন করুন।",
+    challengeTitle: "চ্যালেঞ্জ: সীমা ছাড়িয়ে যান",
+    challengeText:
+      "এই সপ্তাহে একটি উচ্চতর লক্ষ্য নির্ধারণ করে দেখুন আপনি কতদূর যেতে পারেন!",
+    motivationTitle: "প্রেরণা: সাফল্য কল্পনা করুন",
+    motivationText:
+      "নিজেকে ভ্রমণের স্বপ্ন পূরণ করতে কল্পনা করুন। এটি আপনাকে মনোযোগী ও অনুপ্রাণিত রাখে।",
+  },
+  itineraries: {
+    title: "ভ্রমণ পরিকল্পনা",
+    draggableHint: "ড্র্যাগেবল ~ অগ্রাধিকার",
+    addButton: "নতুন যোগ করুন",
+    dialogTitle: "নতুন ভ্রমণ পরিকল্পনা তৈরি করুন",
+    dialogDescription: "শিরোনাম, কার্যক্রম ও সম্পন্নতার হার যোগ করুন।",
+    inputTitle: "শিরোনাম",
+    inputActivities: "কার্যক্রম (কমা দিয়ে আলাদা করুন)",
+    inputCompletion: "সম্পন্নতার %",
+    addConfirm: "যোগ করুন",
+    activitiesLabel: "কার্যক্রম",
+  },
+highlights: {
+  totalGoals: "মোট লক্ষ্য",
+  overallProgress: "সামগ্রিক অগ্রগতি",
+  totalStepsCompleted: "সম্পন্ন ধাপসমূহ",
+},
+goals2: {
+  title: "আপনার লক্ষ্যসমূহ",
+},
+addGoal: {
+  titleLabel: "লক্ষ্যের শিরোনাম",
+  titlePlaceholder: "আপনার লক্ষ্য লিখুন...",
+  targetLabel: "লক্ষ্য",
+  progressLabel: "অগ্রগতি",
+  button: "লক্ষ্য যোগ করুন",
+},
 
   // trips
   trip: {

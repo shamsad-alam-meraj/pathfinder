@@ -14,12 +14,15 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import "@/lib/i18n";
 
 export default function ItinerariesSection() {
   const { itineraries, addItinerary, updateItinerary, reorderItineraries } = useGoalStore();
   const [newTitle, setNewTitle] = useState("");
   const [newActivities, setNewActivities] = useState("");
   const [newCompletion, setNewCompletion] = useState(0);
+  const { t } = useTranslation();
 
   const handleAddItinerary = () => {
     if (!newTitle) return;
@@ -42,31 +45,36 @@ export default function ItinerariesSection() {
     <div className="mt-8">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-semibold">
-          Itineraries <span className="text-blue-400 text-sm">(Draggable ~ Priority)</span>
+          {t("itineraries.title")}{" "}
+          <span className="text-blue-400 text-sm">
+            ({t("itineraries.draggableHint")})
+          </span>
         </h2>
         <Dialog>
           <DialogTrigger asChild>
             <Button className="mt-2 bg-gradient-to-r from-green-400 to-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:scale-105 transition transform flex items-center gap-2 justify-center">
-              <FiPlus /> Add Itinerary
+              <FiPlus /> {t("itineraries.addButton")}
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
-              <DialogTitle>Create New Itinerary</DialogTitle>
-              <DialogDescription>Add title, activities, and completion.</DialogDescription>
+              <DialogTitle>{t("itineraries.dialogTitle")}</DialogTitle>
+              <DialogDescription>
+                {t("itineraries.dialogDescription")}
+              </DialogDescription>
             </DialogHeader>
 
             <div className="flex flex-col gap-4 mt-4">
               <input
                 type="text"
-                placeholder="Title"
+                placeholder={t("itineraries.inputTitle")}
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
                 className="border rounded-lg px-4 py-2"
               />
               <input
                 type="text"
-                placeholder="Activities (comma separated)"
+                placeholder={t("itineraries.inputActivities")}
                 value={newActivities}
                 onChange={(e) => setNewActivities(e.target.value)}
                 className="border rounded-lg px-4 py-2"
@@ -75,7 +83,7 @@ export default function ItinerariesSection() {
                 type="number"
                 min={0}
                 max={100}
-                placeholder="Completion %"
+                placeholder={t("itineraries.inputCompletion")}
                 value={newCompletion}
                 onChange={(e) => setNewCompletion(Number(e.target.value))}
                 className="border rounded-lg px-4 py-2"
@@ -83,8 +91,11 @@ export default function ItinerariesSection() {
 
               <div className="flex justify-end">
                 <DialogClose asChild>
-                  <Button onClick={handleAddItinerary} className="bg-blue-500 text-white px-4 py-2 rounded-lg">
-                    Add
+                  <Button
+                    onClick={handleAddItinerary}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                  >
+                    {t("itineraries.addConfirm")}
                   </Button>
                 </DialogClose>
               </div>
@@ -120,7 +131,7 @@ export default function ItinerariesSection() {
                         />
                       </div>
                       <p className="text-sm text-gray-400">
-                        Activities: {it.activities.join(", ")}
+                        {t("itineraries.activitiesLabel")}: {it.activities.join(", ")}
                       </p>
                     </div>
                   )}
