@@ -116,22 +116,34 @@ const Bengali = {
     addConfirm: "যোগ করুন",
     activitiesLabel: "কার্যক্রম",
   },
-highlights: {
-  totalGoals: "মোট লক্ষ্য",
-  overallProgress: "সামগ্রিক অগ্রগতি",
-  totalStepsCompleted: "সম্পন্ন ধাপসমূহ",
-},
-goals2: {
-  title: "আপনার লক্ষ্যসমূহ",
-},
-addGoal: {
-  titleLabel: "লক্ষ্যের শিরোনাম",
-  titlePlaceholder: "আপনার লক্ষ্য লিখুন...",
-  targetLabel: "লক্ষ্য",
-  progressLabel: "অগ্রগতি",
-  button: "লক্ষ্য যোগ করুন",
-},
-
+  highlights: {
+    totalGoals: "মোট লক্ষ্য",
+    overallProgress: "সামগ্রিক অগ্রগতি",
+    totalStepsCompleted: "সম্পন্ন ধাপসমূহ",
+  },
+  goals2: {
+    title: "আপনার লক্ষ্যসমূহ",
+  },
+  addGoal: {
+    titleLabel: "লক্ষ্যের শিরোনাম",
+    titlePlaceholder: "আপনার লক্ষ্য লিখুন...",
+    targetLabel: "লক্ষ্য",
+    progressLabel: "অগ্রগতি",
+    button: "লক্ষ্য যোগ করুন",
+  },
+  // explore
+   exploreBanner: {
+    title: "আপনার পরবর্তী অভিযান অন্বেষণ করুন",
+    subtitle: "আপনার স্বপ্নের ভ্রমণের পরিকল্পনা করতে ধরণ বা অবস্থান অনুযায়ী গন্তব্য ফিল্টার করুন",
+  },
+  all: "সব",
+  Location: "অবস্থান",
+  "Trip Type": "ভ্রমণের ধরন",
+  Mountains: "পাহাড়",
+  Beach: "সমুদ্রতট",
+  City: "শহর",
+  Adventure: "অ্যাডভেঞ্চার",
+  Relaxation: "বিশ্রাম",
   // trips
   trip: {
     1: {

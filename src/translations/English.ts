@@ -132,7 +132,19 @@ const English = {
     progressLabel: "Progress",
     button: "Add Goal",
   },
-
+  // explore
+  exploreBanner: {
+    title: "Explore Your Next Adventure",
+    subtitle: "Filter destinations by type or location to plan your dream trip",
+  },
+  all: "All",
+  Location: "Location",
+  "Trip Type": "Trip Type",
+  Mountains: "Mountains",
+  Beach: "Beach",
+  City: "City",
+  Adventure: "Adventure",
+  Relaxation: "Relaxation",
   // trips
   trip: {
     1: {

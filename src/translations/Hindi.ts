@@ -116,22 +116,35 @@ const Hindi = {
     addConfirm: "जोड़ें",
     activitiesLabel: "गतिविधियाँ",
   },
-highlights: {
-  totalGoals: "कुल लक्ष्य",
-  overallProgress: "कुल प्रगति",
-  totalStepsCompleted: "पूरा किए गए कदम",
-},
-goals2: {
-  title: "आपके लक्ष्य",
-},
-addGoal: {
-  titleLabel: "लक्ष्य शीर्षक",
-  titlePlaceholder: "अपना लक्ष्य दर्ज करें...",
-  targetLabel: "लक्ष्य",
-  progressLabel: "प्रगति",
-  button: "लक्ष्य जोड़ें",
-},
-
+  highlights: {
+    totalGoals: "कुल लक्ष्य",
+    overallProgress: "कुल प्रगति",
+    totalStepsCompleted: "पूरा किए गए कदम",
+  },
+  goals2: {
+    title: "आपके लक्ष्य",
+  },
+  addGoal: {
+    titleLabel: "लक्ष्य शीर्षक",
+    titlePlaceholder: "अपना लक्ष्य दर्ज करें...",
+    targetLabel: "लक्ष्य",
+    progressLabel: "प्रगति",
+    button: "लक्ष्य जोड़ें",
+  },
+  // explore
+  exploreBanner: {
+    title: "अपने अगले साहसिक यात्रा की खोज करें",
+    subtitle:
+      "अपने सपनों की यात्रा की योजना बनाने के लिए प्रकार या स्थान द्वारा गंतव्य फ़िल्टर करें",
+  },
+  all: "सभी",
+  Location: "स्थान",
+  "Trip Type": "यात्रा प्रकार",
+  Mountains: "पहाड़",
+  Beach: "सागर तट",
+  City: "शहर",
+  Adventure: "साहसिक",
+  Relaxation: "आराम",
   // trips
   trip: {
     1: {
