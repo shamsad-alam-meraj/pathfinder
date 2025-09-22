@@ -1,6 +1,7 @@
 import { getTripData } from "@/lib/dummy-data";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import i18n from "@/lib/i18n";
 
 export interface Trip {
   id: number;
@@ -21,29 +22,41 @@ interface TripState {
   trips: Trip[];
   startedTrips: number[];
   wishlist: number[];
+  refreshTrips: () => void;
   startTrip: (id: number) => void;
   toggleWishlist: (id: number) => void;
 }
 
 export const useTripStore = create<TripState>()(
   persist(
-    (set) => ({
-      trips: getTripData(),
-      startedTrips: [],
-      wishlist: [],
-      startTrip: (id: number) =>
-        set((state) => ({
-          startedTrips: state.startedTrips.includes(id)
-            ? state.startedTrips
-            : [...state.startedTrips, id],
-        })),
-      toggleWishlist: (id: number) =>
-        set((state) => ({
-          wishlist: state.wishlist.includes(id)
-            ? state.wishlist.filter((tid) => tid !== id)
-            : [...state.wishlist, id],
-        })),
-    }),
+    (set) => {
+      // init store
+      const initialTrips = getTripData();
+
+      // subscribe to language change
+      i18n.on("languageChanged", () => {
+        set({ trips: getTripData() });
+      });
+
+      return {
+        trips: initialTrips,
+        startedTrips: [],
+        wishlist: [],
+        refreshTrips: () => set({ trips: getTripData() }),
+        startTrip: (id: number) =>
+          set((state) => ({
+            startedTrips: state.startedTrips.includes(id)
+              ? state.startedTrips
+              : [...state.startedTrips, id],
+          })),
+        toggleWishlist: (id: number) =>
+          set((state) => ({
+            wishlist: state.wishlist.includes(id)
+              ? state.wishlist.filter((tid) => tid !== id)
+              : [...state.wishlist, id],
+          })),
+      };
+    },
     {
       name: "trip-storage",
       storage: createJSONStorage(() => {
