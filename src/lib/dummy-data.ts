@@ -124,7 +124,7 @@ export const getTripData = () => [
     activities: i18n.t("trip.9.activities", { returnObjects: true }) as string[],
     bestTravelTime: i18n.t("trip.9.bestTravelTime"),
     duration: i18n.t("trip.9.duration"),
-    image: "https://lh3.googleusercontent.com/gpms-cs-s/AB8u6HaOdlGfDvI9kDzm7zVYz9eQKT1Lnt1vaGHK3J16VF900T9SWcikvCskB_a1SJ5o2BPi-f7V0su-AUzKAEjLvKNX4bnqG-V18JYETG73PDiFhdEVnOLt_gq0yJlGWbRvhRB1MyWz=s680-w680-h510-rw",
+    image: "https://plus.unsplash.com/premium_photo-1697730197947-f19e92f0035b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 10,
@@ -138,7 +138,7 @@ export const getTripData = () => [
     activities: i18n.t("trip.10.activities", { returnObjects: true }) as string[],
     bestTravelTime: i18n.t("trip.10.bestTravelTime"),
     duration: i18n.t("trip.10.duration"),
-    image: "https://plus.unsplash.com/premium_photo-1697730197947-f19e92f0035b?q=80&w=1470&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1139&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 11,
