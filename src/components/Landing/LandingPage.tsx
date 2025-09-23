@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import TestimonialCarousel from "./TestimonialCarousel";
 import HowItWorksSection from "./HowItWorksSection";
 import FeaturesSection from "./FeaturesSection";

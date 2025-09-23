@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useTripStore } from "@/store/useTripStore";
 import ProtectedRoute from "@/components/Shared/ProtectedRoute";
 import TripHeader from "@/components/TripDetails/TripHeader";
