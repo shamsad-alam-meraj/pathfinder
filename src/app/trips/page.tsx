@@ -13,6 +13,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { useTranslation } from "react-i18next";
+import TripBanner from "@/components/Trip/TripBanner";
 
 export default function TripList() {
   const { t } = useTranslation();
@@ -39,37 +40,8 @@ export default function TripList() {
 
   return (
     <ProtectedRoute>
-      <div className="space-y-8">
-        <div className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 rounded-xl shadow-lg overflow-hidden">
-          <svg
-            className="absolute -top-10 -right-10 w-40 h-40 opacity-20"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#ffffff"
-              d="M42.9,-74.2C55.1,-67.2,59.7,-51.5,63.1,-37.5C66.4,-23.5,68.5,-11.8,68.1,-0.7C67.6,10.4,64.6,20.8,60.8,31.3C57.1,41.9,52.5,52.6,43.7,61.2C34.9,69.8,21.8,76.3,8.1,73.2C-5.7,70.1,-11.3,57.4,-21.4,49.6C-31.5,41.8,-46.1,38.9,-54.5,30.4C-62.9,21.9,-65,7.8,-62.7,-5.1C-60.5,-18,-53.8,-29.6,-45.6,-39.5C-37.4,-49.5,-27.7,-57.9,-16.1,-64.4C-4.4,-70.9,9.1,-75.5,22.3,-75.4C35.5,-75.3,48.6,-70.3,42.9,-74.2Z"
-              transform="translate(100 100)"
-            />
-          </svg>
-
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                {t("planNextAdventure")}
-              </h2>
-              <p className="text-white/90 text-lg md:text-xl">
-                {t("exploreUpcomingTrips")}
-              </p>
-            </div>
-
-            <div>
-              <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-50 transition">
-                {t("addNewTrip")}
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="px-5 md:px-10 space-y-10">
+        <TripBanner />
         {/* Trips Grid */}
         <div>
           <h1 className="text-3xl font-bold mb-6">{t("recommendedTrips")}</h1>

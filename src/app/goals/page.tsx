@@ -18,7 +18,7 @@ export default function GoalsPage() {
 
   return (
     <ProtectedRoute>
-      <div className="space-y-8 px-5 md:px-10 py-6">
+      <div className="px-5 md:px-10 space-y-10">
         <TopBanner />
         <AddGoalForm />
         <Highlights totalGoals={totalGoals} totalProgress={totalProgress} overallPercent={overallPercent} />
