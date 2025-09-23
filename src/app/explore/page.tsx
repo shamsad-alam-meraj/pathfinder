@@ -26,7 +26,7 @@ export default function ExplorePage() {
 
   return (
     <ProtectedRoute>
-      <div className="space-y-10">
+      <div className="px-5 md:px-10 space-y-10">
         <ExploreBanner />
 
         <FilterSection
