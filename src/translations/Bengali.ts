@@ -144,6 +144,8 @@ const Bengali = {
   City: "শহর",
   Adventure: "অ্যাডভেঞ্চার",
   Relaxation: "বিশ্রাম",
+  completeTrip: "ভ্রমণ সম্পন্ন",
+  tripCompleted: "ভ্রমণ সম্পন্ন হয়েছে",
   // trips
   trip: {
     1: {

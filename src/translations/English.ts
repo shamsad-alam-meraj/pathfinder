@@ -145,6 +145,8 @@ const English = {
   City: "City",
   Adventure: "Adventure",
   Relaxation: "Relaxation",
+  completeTrip: "Complete Trip",
+  tripCompleted: "Trip Completed",
   // trips
   trip: {
     1: {

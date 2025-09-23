@@ -145,6 +145,8 @@ const Hindi = {
   City: "शहर",
   Adventure: "साहसिक",
   Relaxation: "आराम",
+  completeTrip: "पूरी यात्रा",
+  tripCompleted: "यात्रा पूरी हुई",
   // trips
   trip: {
     1: {
