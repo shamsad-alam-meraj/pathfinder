@@ -22,9 +22,11 @@ interface TripState {
   trips: Trip[];
   startedTrips: number[];
   wishlist: number[];
+  completedTrips: number[];
   refreshTrips: () => void;
   startTrip: (id: number) => void;
   toggleWishlist: (id: number) => void;
+  completeTrip: (id: number) => void;
 }
 
 export const useTripStore = create<TripState>()(
@@ -42,6 +44,7 @@ export const useTripStore = create<TripState>()(
         trips: initialTrips,
         startedTrips: [],
         wishlist: [],
+        completedTrips: [],
         refreshTrips: () => set({ trips: getTripData() }),
         startTrip: (id: number) =>
           set((state) => ({
@@ -54,6 +57,13 @@ export const useTripStore = create<TripState>()(
             wishlist: state.wishlist.includes(id)
               ? state.wishlist.filter((tid) => tid !== id)
               : [...state.wishlist, id],
+          })),
+        completeTrip: (id: number) =>
+          set((state) => ({
+            completedTrips: state.completedTrips.includes(id)
+              ? state.completedTrips
+              : [...state.completedTrips, id],
+            startedTrips: state.startedTrips.filter((tid) => tid !== id),
           })),
       };
     },
@@ -70,6 +80,7 @@ export const useTripStore = create<TripState>()(
       partialize: (state) => ({
         startedTrips: state.startedTrips,
         wishlist: state.wishlist,
+        completedTrips: state.completedTrips,
       }),
     }
   )

@@ -16,6 +16,7 @@ import {
 } from "react-share";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useTripStore } from "@/store/useTripStore";
 
 interface TripActionsProps {
   hasStarted: boolean;
@@ -35,23 +36,29 @@ export default function TripActions({
   const { t } = useTranslation();
   const [showShare, setShowShare] = useState(false);
 
+  // ✅ completed trips check
+  const completedTrips = useTripStore((state) => state.completedTrips);
+  const isCompleted = completedTrips.includes(id);
+
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  const title = t("shareTitle"); // Translatable share title
+  const title = t("shareTitle");
 
   return (
     <div className="flex flex-wrap gap-4 relative">
-      {/* Start Trip */}
-      <button
-        onClick={() => startTrip(id)}
-        className={`flex items-center gap-2 font-semibold py-2 px-4 rounded shadow-md transition ${
-          hasStarted
-            ? "bg-gray-400 text-white cursor-not-allowed"
-            : "bg-green-500 hover:bg-green-600 text-white"
-        }`}
-        disabled={hasStarted}
-      >
-        {hasStarted ? t("tripStarted") : t("startTrip")}
-      </button>
+      {/* ✅ Only show Start Trip if not completed */}
+      {!isCompleted && (
+        <button
+          onClick={() => startTrip(id)}
+          className={`flex items-center gap-2 font-semibold py-2 px-4 rounded shadow-md transition ${
+            hasStarted
+              ? "bg-gray-400 text-white cursor-not-allowed"
+              : "bg-green-500 hover:bg-green-600 text-white"
+          }`}
+          disabled={hasStarted}
+        >
+          {hasStarted ? t("tripStarted") : t("startTrip")}
+        </button>
+      )}
 
       {/* Share Button with Dropdown */}
       <div className="relative">
@@ -80,7 +87,11 @@ export default function TripActions({
               <TelegramIcon size={32} round />
             </TelegramShareButton>
 
-            <EmailShareButton url={shareUrl} subject={t("shareEmailSubject")} body={title}>
+            <EmailShareButton
+              url={shareUrl}
+              subject={t("shareEmailSubject")}
+              body={title}
+            >
               <EmailIcon size={32} round />
             </EmailShareButton>
           </div>
@@ -98,6 +109,23 @@ export default function TripActions({
       >
         {wishlist ? <AiFillHeart /> : <FiHeart />} {t("wishlist")}
       </button>
+
+      {/* ✅ Complete Trip button (only if started and not completed) */}
+      {hasStarted && !isCompleted && (
+        <button
+          onClick={() => useTripStore.getState().completeTrip(id)}
+          className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded shadow-md transition"
+        >
+          {t("completeTrip")}
+        </button>
+      )}
+
+      {/* ✅ Completed Label */}
+      {isCompleted && (
+        <button disabled className="flex items-center gap-2 bg-gray-400 text-white font-semibold py-2 px-4 rounded shadow-md ">
+          {t("tripCompleted")}
+        </button>
+      )}
     </div>
   );
 }
