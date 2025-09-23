@@ -12,6 +12,7 @@ import DashboardLoading from "./loading";
 import { Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { useAuthStore } from "@/store/useAuthStore";
+import DashboardBanner from "@/components/Dashboard/DashboardBanner";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -49,17 +50,8 @@ export default function Dashboard() {
       <ProtectedRoute>
         <div className="px-5 md:px-10 space-y-10">
           {/* Hero / Header */}
-          <motion.h1 className="text-2xl md:text-6xl lg:text-8xl font-bold leading-tight">
-            {t("heroHeading2")}
-          </motion.h1>
-
-          <motion.h3
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xl md:text-3xl lg:text-4xl font-bold pt-6 pb-5"
-          >
-            {t("welcome", { name: user?.name ? user.name : "Guest User" })}
-          </motion.h3>
+          <DashboardBanner/>
+          
 
           {/* Left Column */}
           <div className="flex flex-col lg:flex-row gap-10 w-full">
