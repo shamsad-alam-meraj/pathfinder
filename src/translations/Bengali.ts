@@ -132,9 +132,10 @@ const Bengali = {
     button: "লক্ষ্য যোগ করুন",
   },
   // explore
-   exploreBanner: {
+  exploreBanner: {
     title: "আপনার পরবর্তী অভিযান অন্বেষণ করুন",
-    subtitle: "আপনার স্বপ্নের ভ্রমণের পরিকল্পনা করতে ধরণ বা অবস্থান অনুযায়ী গন্তব্য ফিল্টার করুন",
+    subtitle:
+      "আপনার স্বপ্নের ভ্রমণের পরিকল্পনা করতে ধরণ বা অবস্থান অনুযায়ী গন্তব্য ফিল্টার করুন",
   },
   all: "সব",
   Location: "অবস্থান",
@@ -146,6 +147,10 @@ const Bengali = {
   Relaxation: "বিশ্রাম",
   completeTrip: "ভ্রমণ সম্পন্ন",
   tripCompleted: "ভ্রমণ সম্পন্ন হয়েছে",
+  completedTrips: "সম্পন্ন ভ্রমণসমূহ",
+  noCompletedTrips: "কোনো ভ্রমণ এখনো সম্পন্ন হয়নি",
+  completedTripsLabel: "সম্পন্ন ভ্রমণ",
+  completed: "সম্পন্ন",
   // trips
   trip: {
     1: {

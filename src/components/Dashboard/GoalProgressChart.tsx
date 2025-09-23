@@ -23,6 +23,8 @@ export default function GoalProgressChart({ data }: GoalChartProps) {
         ? t("started")
         : item.name === "Wishlisted"
         ? t("wishlisted")
+        : item.name === "Completed"
+        ? t("completed")
         : t("remaining"),
   }));
 

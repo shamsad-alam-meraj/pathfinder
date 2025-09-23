@@ -147,6 +147,11 @@ const Hindi = {
   Relaxation: "आराम",
   completeTrip: "पूरी यात्रा",
   tripCompleted: "यात्रा पूरी हुई",
+  completedTrips: "पूर्ण की गई यात्राएँ",
+  noCompletedTrips: "अभी तक कोई यात्रा पूरी नहीं हुई",
+  completedTripsLabel: "पूर्ण यात्राएँ",
+  completed: "पूर्ण",
+
   // trips
   trip: {
     1: {

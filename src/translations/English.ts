@@ -147,6 +147,10 @@ const English = {
   Relaxation: "Relaxation",
   completeTrip: "Complete Trip",
   tripCompleted: "Trip Completed",
+  completedTrips: "Completed Trips",
+  noCompletedTrips: "No trips completed yet",
+  completedTripsLabel: "Completed Trips",
+  completed: "Completed",
   // trips
   trip: {
     1: {
