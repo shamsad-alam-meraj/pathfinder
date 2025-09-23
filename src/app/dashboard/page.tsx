@@ -11,6 +11,7 @@ import { FiPlus } from "react-icons/fi";
 import DashboardLoading from "./loading";
 import { Suspense } from "react";
 import { useTranslation } from "react-i18next";
+import { useAuthStore } from "@/store/useAuthStore";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function Dashboard() {
   const startedTrips = useTripStore((state) => state.startedTrips);
   const wishlist = useTripStore((state) => state.wishlist);
   const { t } = useTranslation();
+  const user = useAuthStore((state) => state.user);
 
   // Analytics counts
   const totalTrips = trips.length;
@@ -47,7 +49,7 @@ export default function Dashboard() {
             animate={{ opacity: 1, y: 0 }}
             className="text-xl md:text-3xl lg:text-4xl font-bold pt-6 pb-5"
           >
-            {t("welcome", { name: "John" })}
+            {t("welcome", { name: user?.name ? user.name : "Guest User" })}
           </motion.h3>
 
           {/* Left Column: Start Trip + Upcoming Trips */}

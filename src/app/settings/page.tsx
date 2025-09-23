@@ -81,7 +81,7 @@ export default function SettingsPage() {
             />
           </div>
           <div className="text-center sm:text-left">
-            <h2 className="text-xl font-bold">{user?.name || "User"}</h2>
+            <h2 className="text-xl font-bold">{user?.name || "Guest User"}</h2>
             <p className="text-gray-500 dark:text-gray-300 text-sm sm:text-base">
               {user?.email || "user@example.com"}
             </p>
