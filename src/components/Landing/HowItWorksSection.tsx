@@ -27,7 +27,7 @@ export default function HowItWorksSection() {
 
   return (
     <section className="max-w-5xl w-full mb-20 px-4">
-      <h2 className="text-4xl font-bold mb-12 text-blue-700 text-center">
+      <h2 className="text-4xl font-bold mb-12 text-blue-700 text-center font-mw">
         {t("howItWorksTitle")}
       </h2>
 

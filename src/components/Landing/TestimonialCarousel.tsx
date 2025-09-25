@@ -27,7 +27,7 @@ export default function TestimonialCarousel() {
 
   return (
     <section className="max-w-5xl w-full mb-20">
-      <h2 className="text-4xl font-bold mb-8 text-blue-700">
+      <h2 className="text-4xl font-bold mb-8 text-blue-700 font-mw">
         {t("testimonialTitle")}
       </h2>
       <div className="relative w-full max-w-4xl mx-auto mb-20">
