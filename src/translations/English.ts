@@ -15,7 +15,7 @@ const English = {
   profile: "Profile",
   heroHeading: "Plan Smarter. Travel Better.",
   heroSubtext:
-    "PathFinder helps you organize trips, track goals, and explore new destinations — all in one place.",
+    "Path Finder helps you organize trips, track goals, and explore new destinations — all in one place.",
   getStarted: "Get Started",
   learnMore: "Learn More",
   featuresTitle: "Key Features",

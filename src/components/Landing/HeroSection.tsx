@@ -8,7 +8,7 @@ export default function HeroSection() {
 
   return (
     <section className="flex flex-col items-center text-center py-20 px-6">
-      <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-blue-700 mb-6">
+      <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-blue-700 mb-6 font-mw">
         {t("heroHeading")}
       </h1>
       <p className="text-lg md:text-xl text-blue-950 max-w-2xl mb-8">
