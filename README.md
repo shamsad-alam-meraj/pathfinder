@@ -18,8 +18,9 @@
 
 ## Tech Stack
 
-- **Frontend**: [Next.js](https://nextjs.org/) + **TypeScript**
+- **Framework**: [Next.js](https://nextjs.org/) + **TypeScript**
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Fonts**: [Fontsource](https://fontsource.org/)
 - **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Charts**: [Recharts](https://recharts.org/en-US/)
