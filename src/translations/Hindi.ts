@@ -151,7 +151,8 @@ const Hindi = {
   noCompletedTrips: "अभी तक कोई यात्रा पूरी नहीं हुई",
   completedTripsLabel: "पूर्ण यात्राएँ",
   completed: "पूर्ण",
-
+  backToTrips: "ट्रिप्स पर वापस जाएं",
+  tripNotFound: "ट्रिप नहीं मिली!",
   // trips
   trip: {
     1: {
