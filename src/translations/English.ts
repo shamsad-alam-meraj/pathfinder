@@ -151,6 +151,9 @@ const English = {
   noCompletedTrips: "No trips completed yet",
   completedTripsLabel: "Completed Trips",
   completed: "Completed",
+  backToTrips: "Back to Trips",
+  tripNotFound: "Trip not found!",
+
   // trips
   trip: {
     1: {

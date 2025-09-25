@@ -151,6 +151,8 @@ const Bengali = {
   noCompletedTrips: "কোনো ভ্রমণ এখনো সম্পন্ন হয়নি",
   completedTripsLabel: "সম্পন্ন ভ্রমণ",
   completed: "সম্পন্ন",
+  backToTrips: "ট্রিপস-এ ফিরে যান",
+  tripNotFound: "ট্রিপ খুঁজে পাওয়া যায়নি!",
   // trips
   trip: {
     1: {
