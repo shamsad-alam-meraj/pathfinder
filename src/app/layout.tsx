@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen w-screen flex flex-col">
+      <body className="h-screen w-screen flex flex-col font-lato">
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
     </html>

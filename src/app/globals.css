@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource-variable/merriweather";
+@import "@fontsource/lato";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,6 +10,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-mw: var(--font-mw);
+  --font-lato: var(--font-lato);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -76,6 +80,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --font-mw: "Merriweather Variable", sans-serif;
+  --font-lato: "Lato", sans-serif;
 }
 
 .dark {
@@ -110,6 +116,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --font-mw: "Merriweather Variable", sans-serif;
+  --font-lato: "Lato", sans-serif;
 }
 
 @layer base {
