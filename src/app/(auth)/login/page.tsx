@@ -79,7 +79,7 @@ export default function LoginPage() {
       <div className="h-[calc(100%-103px)] flex items-center justify-center  px-4">
         <Card className="w-full max-w-md shadow-lg rounded-2xl">
           <CardHeader>
-            <CardTitle className="text-center text-2xl font-bold text-purple-700">
+            <CardTitle className="text-center text-2xl font-bold text-blue-700">
               {tab === "login" ? "Welcome Back" : "Create an Account"}
             </CardTitle>
           </CardHeader>
@@ -114,7 +114,7 @@ export default function LoginPage() {
                   />
                   <Button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                    className="w-full bg-blue-600 hover:bg-blue-800 text-white font-bold"
                   >
                     Log In
                   </Button>
@@ -150,7 +150,7 @@ export default function LoginPage() {
                   />
                   <Button
                     type="submit"
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                    className="w-full bg-blue-600 hover:bg-blue-800 text-white font-bold"
                   >
                     Sign Up
                   </Button>
