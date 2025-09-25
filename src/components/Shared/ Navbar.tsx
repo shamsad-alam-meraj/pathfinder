@@ -44,14 +44,14 @@ export default function Navbar() {
       <div className="flex-1 flex justify-end">
         {status === "loading" ? null : session || user ? (
           <Button
-            className="bg-red-500 hover:bg-red-600 text-white px-6"
+            className="bg-red-500 hover:bg-red-600 text-white px-6 font-bold"
             onClick={handleLogout}
           >
             {t("logout")}
           </Button>
         ) : (
           <Link href="/login">
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6">
+            <Button className="bg-blue-600 hover:bg-blue-800 text-white px-6 font-bold">
               {t("login")}
             </Button>
           </Link>
