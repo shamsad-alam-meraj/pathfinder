@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { useTranslation } from "react-i18next";
 
 export default function HeroSection() {
@@ -15,15 +16,19 @@ export default function HeroSection() {
         {t("heroSubtext")}
       </p>
       <div className="flex gap-4 mb-16 flex-wrap justify-center">
-        <Button
-          size="lg"
-          className="px-8 bg-blue-600 hover:bg-blue-800 font-bold"
-        >
-          {t("getStarted")}
-        </Button>
-        <Button size="lg" variant="outline" className="px-8">
-          {t("learnMore")}
-        </Button>
+        <Link href={"/login"}>
+          <Button
+            size="lg"
+            className="px-8 bg-blue-600 hover:bg-blue-800 font-bold"
+          >
+            {t("getStarted")}
+          </Button>
+        </Link>
+        <Link href={"/login"}>
+          <Button size="lg" variant="outline" className="px-8">
+            {t("learnMore")}
+          </Button>
+        </Link>
       </div>
     </section>
   );
