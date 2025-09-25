@@ -1,6 +1,6 @@
 "use client";
 
-import { GoalCircle } from "@/components/GoalProgress";
+import { GoalCircle } from "@/components/Goals/GoalProgress";
 import { useGoalStore } from "@/store/useGoalStore";
 import { useTranslation } from "react-i18next";
 import "@/lib/i18n";
