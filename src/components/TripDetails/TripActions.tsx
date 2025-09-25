@@ -17,6 +17,7 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/store/useTripStore";
+import { Copy, Check } from "lucide-react";
 
 interface TripActionsProps {
   hasStarted: boolean;
@@ -35,13 +36,23 @@ export default function TripActions({
 }: TripActionsProps) {
   const { t } = useTranslation();
   const [showShare, setShowShare] = useState(false);
-
-  // ✅ completed trips check
+  const [copied, setCopied] = useState(false);
+  // completed trips check
   const completedTrips = useTripStore((state) => state.completedTrips);
   const isCompleted = completedTrips.includes(id);
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
   const title = t("shareTitle");
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy link", err);
+    }
+  };
 
   return (
     <div className="flex flex-wrap gap-4 relative">
@@ -70,7 +81,7 @@ export default function TripActions({
         </button>
 
         {showShare && (
-          <div className="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-lg p-3 flex gap-3 z-50">
+          <div className="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-lg p-3 flex flex-wrap gap-3 z-50 w-[278px]">
             <FacebookShareButton url={shareUrl} title={title}>
               <FacebookIcon size={32} round />
             </FacebookShareButton>
@@ -94,6 +105,18 @@ export default function TripActions({
             >
               <EmailIcon size={32} round />
             </EmailShareButton>
+
+            {/* Copy Icon*/}
+            <button
+              onClick={handleCopy}
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-purple-800 hover:bg-purple-950 transition"
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-white font-bold" />
+              ) : (
+                <Copy className="w-4 h-4  text-white font-bold" />
+              )}
+            </button>
           </div>
         )}
       </div>
@@ -110,7 +133,7 @@ export default function TripActions({
         {wishlist ? <AiFillHeart /> : <FiHeart />} {t("wishlist")}
       </button>
 
-      {/* ✅ Complete Trip button (only if started and not completed) */}
+      {/* Complete Trip button (only if started and not completed) */}
       {hasStarted && !isCompleted && (
         <button
           onClick={() => useTripStore.getState().completeTrip(id)}
@@ -120,9 +143,12 @@ export default function TripActions({
         </button>
       )}
 
-      {/* ✅ Completed Label */}
+      {/* Completed Label */}
       {isCompleted && (
-        <button disabled className="flex items-center gap-2 bg-gray-400 text-white font-semibold py-2 px-4 rounded shadow-md ">
+        <button
+          disabled
+          className="flex items-center gap-2 bg-gray-400 text-white font-semibold py-2 px-4 rounded shadow-md "
+        >
           {t("tripCompleted")}
         </button>
       )}
