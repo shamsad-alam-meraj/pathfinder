@@ -31,7 +31,7 @@ export default function Navbar() {
             height={50}
             style={{ width: "auto", height: "auto" }}
           />
-          <h6 className="pl-3 font-bold text-2xl text-purple-800">
+          <h6 className="pl-3 font-bold text-2xl text-purple-800 font-mw">
             {t("appName")}
           </h6>
         </Link>

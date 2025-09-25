@@ -10,7 +10,7 @@ export default function NewsletterCTA() {
   return (
     <section className="max-w-2xl w-full py-20 px-4 mx-auto text-center">
       {/* Heading */}
-      <h2 className="text-4xl font-bold mb-4 text-blue-700">
+      <h2 className="text-4xl font-bold mb-4 text-blue-700 font-mw">
         {t("newsletterTitle")}
       </h2>
 

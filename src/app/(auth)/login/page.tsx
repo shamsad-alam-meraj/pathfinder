@@ -79,7 +79,7 @@ export default function LoginPage() {
       <div className="h-[calc(100%-103px)] flex items-center justify-center  px-4">
         <Card className="w-full max-w-md shadow-lg rounded-2xl">
           <CardHeader>
-            <CardTitle className="text-center text-2xl font-bold text-blue-700">
+            <CardTitle className="text-center text-2xl font-bold text-blue-700 font-mw">
               {tab === "login" ? "Welcome Back" : "Create an Account"}
             </CardTitle>
           </CardHeader>

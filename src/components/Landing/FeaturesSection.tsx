@@ -30,7 +30,7 @@ export default function FeaturesSection() {
 
   return (
     <section className="max-w-6xl w-full mb-20 px-4">
-      <h2 className="text-4xl font-bold mb-12 text-center text-blue-700">
+      <h2 className="text-4xl font-bold mb-12 text-center text-blue-700 font-mw">
         {t("featuresTitle")}
       </h2>
 
